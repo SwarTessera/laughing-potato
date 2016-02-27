@@ -1,0 +1,36 @@
+{
+  "name": "swartessera",
+  "version": "1.0.0",
+  "description": "BE project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwarTessera/laughing-potato.git"
+  },
+  "keywords": [
+    "password",
+    "graphical",
+    "voice",
+    "authentication"
+  ],
+  "author": "Cheryl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SwarTessera/laughing-potato/issues"
+  },
+  "homepage": "https://github.com/SwarTessera/laughing-potato#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "connect-mongo": "^1.1.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "grunt": "^0.4.5",
+    "jade": "^1.11.0",
+    "lodash": "^4.5.1",
+    "mongoose": "^4.4.5"
+  }
+}

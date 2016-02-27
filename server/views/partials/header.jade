@@ -1,0 +1,22 @@
+.navbar.navbar-inverse.navbar-fixed-top
+	.container
+		.navbar-header
+			a.navbar-brand(href='/') CodeGurukul
+		.navbar-collapse.navbar-collapse
+			ul.nav.navbar-nav
+				li
+					a(href='/') Home
+			.navbar-right
+				if(!user)
+					form.navbar-form(action='/signin' method="post")
+						.form-group
+							input.form-control(placeholder='Email' name='userName')
+						.form-group
+							input.form-control(placeholder='Password' type='text' name='password')
+						button.btn.btn-primary Sign In
+			.navbar-right
+				form.navbar-form(action='/signup' method="post")
+					.form-group
+					button.btn.btn-primary Sign Up
+				form.navbar-form(action='/addcourse' method="post")
+					button.btn.btn-primary Add Course

@@ -1,0 +1,20 @@
+{
+  "name": "swartessera",
+  "description": "BE project",
+  "main": "server.js",
+  "authors": [
+    "Cheryl"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "password",
+    "graphical",
+    "voice",
+    "authentication"
+  ],
+  "homepage": "https://github.com/SwarTessera/laughing-potato",
+  "moduleType": [],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
