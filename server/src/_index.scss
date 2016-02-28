@@ -1,4 +1,31 @@
+.contain-welcome{
+    margin-top: -100px;
+}
+
 .welcome{
 	background: url(/images/lion-bg.jpg);
-	height:100%
+    height: 650px;
+    margin-top: 0px;
+}
+
+.welcome-text{
+	margin-top: 12%;
+    color: white;
+    font-family: serif;
+
+    h1{
+	    font-size: 90px;
+	}
+
+	p{
+		font-size: 25px;
+		color: $hi-light-grey;
+    	font-weight: bold;
+	}  
+
+	.arrow{
+		color: $tint;
+	    font-size: 50px;
+	    margin-top: 30%;
+	}
 }
