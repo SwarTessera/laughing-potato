@@ -1,18 +1,41 @@
 extends ./includes/layout
 block main
 
-  .container
-    .row
-      .col-md-4.col-md-offset-4
-        h1.text-center Sign Up and Join Us
-    .row
-      .col-md-4.col-md-offset-4
-        form(action='/signup' method='post')  
-          .form-group
-            input.form-control(type='text', placeholder='Full name' name='fullName')
-          .form-group
-            input.form-control(type='text', placeholder='Email' name='userName')
-          .form-group
-            input.form-control(placeholder='Password' type='password' name='password')
-          .form-group.text-center     
-            button.btn.btn-primary(type='submit') Sign up
+    .testbox#signup
+      h1 Registration
+      |   
+      form(action='/')
+        hr
+        |   
+        label#icon(for='name')
+          i.fa.fa-envelope-o
+        |   
+        input#name(type='text', name='name', placeholder='Email', required='')
+        |   
+        label#icon(for='name')
+          i.fa.fa-user
+        |   
+        input#name(type='text', name='name', placeholder='Name', required='')
+        |   
+        label#icon(for='name')
+          i.fa.fa-shield
+        |   
+        input#name(type='password', name='name', placeholder='Password', required='')
+        |   
+        .gender
+          input#male(type='radio', value='None', name='gender', checked='')
+          |     
+          label.radio(for='male', chec='') Male
+          |     
+          input#female(type='radio', value='None', name='gender')
+          |     
+          label.radio(for='female') Female
+        |  
+        |    
+        p
+          | By clicking Register, you agree on our 
+          a(href='#') terms and condition
+          | .
+        |    
+        a.button(href='#') Register
+

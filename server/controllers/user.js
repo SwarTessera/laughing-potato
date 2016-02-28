@@ -17,6 +17,10 @@ exports.postSignUp = function(req,res){
         });
     }
 
+exports.getSignIn = function(req,res){
+  res.render('signin');
+}
+
 exports.postSignIn = function(req,res){
 	User.findOne({ username: req.body.userName}, function (err, doc){
   	// doc is a Document
