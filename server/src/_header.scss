@@ -3,3 +3,30 @@
     margin-left: 10px;
   }
 }
+
+.icon {
+    text-align: center;
+    color: $tint;
+    font-size: 40px;
+    margin-top: 8px;
+}
+
+.brand{
+	padding-left: 0px;
+    font-size: 23px;
+}
+
+.tab{
+	margin-left: 17%;
+	h3{
+		margin-top: 10px;
+	    color: #F99E00;
+	}
+}
+
+.signin-btn{
+    background-color: #F99E00;
+    border-color: #F99E00;
+    font-weight: bolder;
+    color: #222222;
+}
