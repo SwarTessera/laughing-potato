@@ -6,21 +6,32 @@ block main
       |   
       form(action='/')
         hr
+        | 
+        label#icon(for='name')
+          i.fa.fa-user
         |   
+        input#name(type='text', name='name', placeholder='User name', required='')
+        |     
         label#icon(for='name')
           i.fa.fa-envelope-o
         |   
         input#name(type='text', name='name', placeholder='Email', required='')
         |   
         label#icon(for='name')
-          i.fa.fa-user
-        |   
-        input#name(type='text', name='name', placeholder='Name', required='')
-        |   
-        label#icon(for='name')
           i.fa.fa-shield
         |   
-        input#name(type='password', name='name', placeholder='Password', required='')
+        select#name(name='name', required='')
+          option(disabled selected) Security question
+          option Question 1
+          option Question 2
+          option Question 3
+          option Question 4
+          option Question 5
+        |     
+        label#icon(for='name')
+          i.fa.fa-pencil-square-o
+        |   
+        input#name(type='text', name='name', placeholder='Answer', required='')
         |   
         .gender
           input#male(type='radio', value='None', name='gender', checked='')
