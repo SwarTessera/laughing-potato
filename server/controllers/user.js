@@ -7,7 +7,7 @@ exports.getSignUp = function(req,res){
 
 exports.postSignUp = function(req,res){
         //Create a new user
-        var user = new User ({name: req.body.fullName, email: req.body.userName, password: req.body.password});
+        var user = new User ({name: req.body.name, email: req.body.email, question: req.body.question, answer: req.body.answer, gender: req.body.gender});
         //The Magic!
         user.save(function(err){
         	Course.find(function(err,courses){

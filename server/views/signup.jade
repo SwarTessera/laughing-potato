@@ -4,7 +4,7 @@ block main
     .testbox#signup
       h1 Registration
       |   
-      form(action='/')
+      form(name="form", action='/signup', method="post")
         hr
         | 
         label#icon(for='name')
@@ -15,30 +15,30 @@ block main
         label#icon(for='name')
           i.fa.fa-envelope-o
         |   
-        input#name(type='text', name='name', placeholder='Email', required='')
+        input#name(type='text', name='email', placeholder='Email', required='')
         |   
         label#icon(for='name')
           i.fa.fa-shield
         |   
-        select#name(name='name', required='')
+        select#name(name='question', required='')
           option(disabled selected) Security question
-          option Question 1
-          option Question 2
-          option Question 3
-          option Question 4
-          option Question 5
+          option(value='q1') Question 1
+          option(value='q2') Question 2
+          option(value='q3') Question 3
+          option(value='q4') Question 4
+          option(value='q5') Question 5
         |     
         label#icon(for='name')
           i.fa.fa-pencil-square-o
         |   
-        input#name(type='text', name='name', placeholder='Answer', required='')
+        input#name(type='text', name='answer', placeholder='Answer', required='')
         |   
         .gender
-          input#male(type='radio', value='None', name='gender', checked='')
+          input#male(type='radio', value='Male', name='gender', checked='')
           |     
           label.radio(for='male', chec='') Male
           |     
-          input#female(type='radio', value='None', name='gender')
+          input#female(type='radio', value='Female', name='gender')
           |     
           label.radio(for='female') Female
         |  
