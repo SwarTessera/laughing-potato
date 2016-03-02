@@ -7,14 +7,9 @@ exports.getSignUp = function(req,res){
 
 exports.postSignUp = function(req,res){
         //Create a new user
-        var user = new User ({name: req.body.name, email: req.body.email, question: req.body.question, answer: req.body.answer, gender: req.body.gender});
-        //The Magic!
-        user.save(function(err){
-        	Course.find(function(err,courses){
-            res.render('index',{courseList:courses});
-        	});
-        	
-        });
+        var user = new User ({profile:{name:req.body.name, gender:req.body.gender}, email: req.body.email, question: req.body.question, answer: req.body.answer});
+        user.save();
+        res.render('index', {title:' | Sign up'});
     }
 
 exports.getSignIn = function(req,res){

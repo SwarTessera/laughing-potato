@@ -1,5 +1,10 @@
+.register{
+  background: url(/images/register-bg.jpg);
+  margin-top: -40px;
+}
+
 .testbox {
-  margin: 10px auto 40px auto;
+  margin: 35px auto 35px auto;
   width: 343px; 
   height: 464px; 
   -webkit-border-radius: 8px/7px; 
@@ -131,11 +136,10 @@ input[type=password]{
   margin-top: 20px;
 }
 
-a.button {
+input[type=submit].button {
   font-size: 14px;
   font-weight: 600;
   color: white;
-  padding: 6px 25px 0px 12px;
   margin: 0px 8px 20px 0px;
   display: inline-block;
   float: right;
@@ -143,6 +147,7 @@ a.button {
   width: 77px; height: 33px; 
   -webkit-border-radius: 5px; 
   -moz-border-radius: 5px; 
+  border: 0px;
   border-radius: 5px; 
   background-color: $tint; 
   -webkit-box-shadow: 0 3px rgba(58,87,175,.75); 
@@ -153,7 +158,7 @@ a.button {
   position: relative;
 }
 
-a.button:hover {
+input[type=submit].button:hover {
   top: 3px;
   background-color:#2e458b;
   -webkit-box-shadow: none; 

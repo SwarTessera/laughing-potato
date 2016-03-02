@@ -1,6 +1,6 @@
 extends ./includes/layout
 block main
-
+  .container-fluid.register
     .testbox#signup
       h1 Registration
       |   
@@ -48,5 +48,5 @@ block main
           a(href='#') terms and condition
           | .
         |    
-        a.button(href='#') Register
+        input(type="submit", value='Register').button 
 
