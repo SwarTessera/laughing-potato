@@ -1,0 +1,20 @@
+extends ./includes/layout
+block main
+  .container-fluid.register
+    .testbox.signin#signup
+      h1 Login
+      |   
+      form(name="form", action='/signin', method="post")
+        hr
+        | 
+        label#icon(for='name')
+          i.fa.fa-user
+        |   
+        input#name(type='text', name='name', placeholder='User name', required='')
+        |     
+        |    
+        p
+          a(href='#') Forgot Username?
+        |    
+        input(type="submit", value='Proceed').button 
+
