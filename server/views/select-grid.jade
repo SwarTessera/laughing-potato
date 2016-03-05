@@ -1,0 +1,128 @@
+extends ./includes/layout
+block main
+  .container-fluid.grid
+    .row
+      h2 Select 4 images
+    .row
+      .col-md-1
+        img(src='/icons/Apple.png')
+      .col-md-1
+        img(src='/icons/Cherry.png')
+      .col-md-1
+        img(src='/icons/Butterfly.png')
+      .col-md-1
+        img(src='/icons/Milk.png')
+      .col-md-1
+        img(src='/icons/Beer.png')
+      .col-md-1
+        img(src='/icons/Boat.png')
+      .col-md-1
+        img(src='/icons/House.png')
+      .col-md-1
+        img(src='/icons/Cupcake.png')
+      .col-md-1
+        img(src='/icons/USB.png')
+      .col-md-1
+        img(src='/icons/Bulb.png')
+      .col-md-1
+        img(src='/icons/Watermelon.png')
+      .col-md-1
+        img(src='/icons/Balance.png')
+      .col-md-1
+        img(src='/icons/Handshake.png')
+      .col-md-1
+        img(src='/icons/Pizza.png')
+      .col-md-1
+        img(src='/icons/Gift.png')
+      .col-md-1
+        img(src='/icons/Candle.png')
+      .col-md-1
+        img(src='/icons/Gears.png')
+      .col-md-1
+        img(src='/icons/Piano.png')
+      .col-md-1
+        img(src='/icons/Telephone.png')
+      .col-md-1
+        img(src='/icons/Star.png')
+      .col-md-1
+        img(src='/icons/Turnip.png')
+      .col-md-1
+        img(src='/icons/Chocolate.png')
+      .col-md-1
+        img(src='/icons/Bells.png')
+      .col-md-1
+        img(src='/icons/Alarm.png')
+      .col-md-1
+        img(src='/icons/Trophy.png')
+      .col-md-1
+        img(src='/icons/Church.png')
+      .col-md-1
+        img(src='/icons/Cloud.png')
+      .col-md-1
+        img(src='/icons/Football.png')
+      .col-md-1
+        img(src='/icons/Book.png')
+      .col-md-1
+        img(src='/icons/Eye.png')
+      .col-md-1
+        img(src='/icons/Cheese.png')
+      .col-md-1
+        img(src='/icons/Ladybug.png')
+      .col-md-1
+        img(src='/icons/Fence.png')
+      .col-md-1
+        img(src='/icons/Donut.png')
+      .col-md-1
+        img(src='/icons/Twitter.png')
+      .col-md-1
+        img(src='/icons/Earth.png')
+      .col-md-1
+        img(src='/icons/Wine_glass.png')
+      .col-md-1
+        img(src='/icons/Woman.png')
+      .col-md-1
+        img(src='/icons/Slipper.png')
+      .col-md-1
+        img(src='/icons/Rocket.png')
+      .col-md-1
+        img(src='/icons/Sun.png')
+      .col-md-1
+        img(src='/icons/Easter_bunny.png')
+      .col-md-1
+        img(src='/icons/Tux.png')
+      .col-md-1
+        img(src='/icons/Panda.png')
+      .col-md-1
+        img(src='/icons/Starbucks.png')
+      .col-md-1
+        img(src='/icons/Icecream.png')
+      .col-md-1
+        img(src='/icons/Coffee.png')
+      .col-md-1
+        img(src='/icons/Ticket.png')
+
+    .row.text-center
+      // Button trigger modal
+      button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal')
+        | Record your voice!
+
+    #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+            |         
+            h4#myModalLabel.modal-title Modal title
+          |       
+          .modal-body
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nihil nam reiciendis, dicta, maxime esse alias sunt nemo quam veritatis distinctio assumenda velit consectetur voluptatibus deserunt autem fugit soluta. Quibusdam!
+
+            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis aspernatur ut nesciunt odio, deleniti praesentium esse nisi illo! Repellat maiores quibusdam quia debitis necessitatibus iure voluptatibus id, earum omnis.
+          |       
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            |         
+            button.btn.btn-primary(type='button') Save changes
+
+

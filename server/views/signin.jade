@@ -1,7 +1,7 @@
 extends ./includes/layout
 block main
-  .container-fluid.register
-    .testbox.signin#signup
+  .container-fluid.register.signin
+    .testbox#signup
       h1 Login
       |   
       form(name="form", action='/signin', method="post")
@@ -17,4 +17,3 @@ block main
           a(href='#') Forgot Username?
         |    
         input(type="submit", value='Proceed').button 
-

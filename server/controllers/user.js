@@ -2,18 +2,18 @@ var User =require('../models/User');
 var Course =require('../models/Course');
 
 exports.getSignUp = function(req,res){
-	res.render('signup');
+	res.render('signup', {title:' | Sign up'});
 }
 
 exports.postSignUp = function(req,res){
         //Create a new user
         var user = new User ({profile:{name:req.body.name, gender:req.body.gender}, email: req.body.email, question: req.body.question, answer: req.body.answer});
         user.save();
-        res.render('index', {title:' | Sign up'});
+        res.render('select-grid', {title:' | Select Password'});
     }
 
 exports.getSignIn = function(req,res){
-  res.render('signin');
+  res.render('signin', {title:' | Sign in'});
 }
 
 exports.postSignIn = function(req,res){
@@ -36,5 +36,5 @@ exports.postSignIn = function(req,res){
   	}
   	
 	});
-
+  // res.render('select-grid', {title:' | Select Password'});
 }

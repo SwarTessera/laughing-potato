@@ -1,0 +1,24 @@
+.grid{
+  background: url(/images/grid-bg.jpg);
+  background-repeat: round;
+  margin-top: -40px;
+
+  h2{
+  	color: $wah;
+  }
+
+  .row{
+  	margin-right: 1%;
+  }
+
+  img{
+  	height: 100px;
+    margin-bottom: 10%;
+  }
+
+  .voice-modal{
+  	margin-top: 20px;
+  	background-color: $tint;
+  	border-color: $tint;
+  }
+}
