@@ -17,24 +17,24 @@ exports.getSignIn = function(req,res){
 }
 
 exports.postSignIn = function(req,res){
-	User.findOne({ username: req.body.userName}, function (err, doc){
+	// User.findOne({ username: req.body.userName}, function (err, doc){
   	// doc is a Document
-  	if(err)
-  	{
-  		console.log(err);
-  	}
-  	if(doc)
-  	{
-	  		if(req.body.password==doc.password)
-	  	{
-	  		res.send('Login was SUCCESSFUL :)');
-	  	}
-	  	else
-	  	{
-	  		res.send('Login was UNSUCCESSFUL :(');
-	  	}	
-  	}
+ //  	if(err)
+ //  	{
+ //  		console.log(err);
+ //  	}
+ //  	if(doc)
+ //  	{
+	//   		if(req.body.password==doc.password)
+	//   	{
+	//   		res.send('Login was SUCCESSFUL :)');
+	//   	}
+	//   	else
+	//   	{
+	//   		res.send('Login was UNSUCCESSFUL :(');
+	//   	}	
+ //  	}
   	
-	});
-  // res.render('select-grid', {title:' | Select Password'});
+	// });
+  res.render('select-grid', {title:' | Select Password'});
 }

@@ -103,7 +103,7 @@ block main
 
     .row.text-center
       // Button trigger modal
-      button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal')
+      button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onmouseover="generate()")
         | Record your voice!
 
     #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
@@ -116,9 +116,11 @@ block main
             h4#myModalLabel.modal-title Modal title
           |       
           .modal-body
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo nihil nam reiciendis, dicta, maxime esse alias sunt nemo quam veritatis distinctio assumenda velit consectetur voluptatibus deserunt autem fugit soluta. Quibusdam!
-
-            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto blanditiis aspernatur ut nesciunt odio, deleniti praesentium esse nisi illo! Repellat maiores quibusdam quia debitis necessitatibus iure voluptatibus id, earum omnis.
+            p#line1
+            p#line2
+            p#line3
+            p#line4
+            p#line5
           |       
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Close

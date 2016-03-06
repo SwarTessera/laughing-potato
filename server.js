@@ -2,10 +2,14 @@ var express = require('express'); //node_module for express server
 //MongoDb Driver or Middleware
 var mongoose = require('mongoose'); 
 var bodyParser = require('body-parser');
+
 var Course =require('./server/models/Course');
 var User =require('./server/models/User');
+var Para =require('./server/models/Para');
+
 var userController =require('./server/controllers/user');
 var courseController =require('./server/controllers/course');
+// var paraController =require('./server/controllers/para');
 
 var app = express();
 
