@@ -1,5 +1,6 @@
 .register{
   background: url(/images/register-bg.jpg);
+  background-repeat: round;
   margin-top: -40px;
 }
 
@@ -23,6 +24,7 @@ p {
   display: inline-block;
   margin-left: 18px;
 }
+
 h1 {
   font-size: 32px;
   font-weight: 300;

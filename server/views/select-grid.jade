@@ -99,7 +99,9 @@ block main
       .col-md-1
         img(src='/icons/Coffee.png')
       .col-md-1
-        img(src='/icons/Ticket.png')
+        form(action="/" method="get")
+          button
+            img(src='/icons/Ticket.png')
 
     .row.text-center
       // Button trigger modal
@@ -125,6 +127,6 @@ block main
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal') Close
             |         
-            button.btn.btn-primary(type='button') Save changes
+            buttonbtn.btn-.primary(type='button') Save changes
 
 
