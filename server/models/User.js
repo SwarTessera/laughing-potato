@@ -16,6 +16,13 @@ var userSchema = new mongoose.Schema({
     picture: { type: String, default: '' }
   },
 
+  password: {
+    i1: { type: String, unique: true, default: ''},
+    i2: { type: String, unique: true, default: ''},
+    i3: { type: String, unique: true, default: ''},
+    i4: { type: String, unique: true, default: ''}
+  },
+
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });

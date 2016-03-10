@@ -1,6 +1,9 @@
 var User =require('../models/User');
 var Course =require('../models/Course');
 
+
+var iconcount=1;
+
 exports.getSignUp = function(req,res){
 	res.render('signup', {title:' | Sign up'});
 }
@@ -9,12 +12,29 @@ exports.postSignUp = function(req,res){
         //Create a new user
         var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
         user.save();
-        res.render('select-icon', {title:' | Select Password'});
+        res.render('select-grid', {title:' | Select Password'});
     }
 
 exports.getImgGrid = function(req,res){
-    res.render('select-grid', {title:' | Select Password'});
+  User.findOne({name:user.name}, function(err, users){
+  if (err) throw err;
+  user.password.i1='1';
+  user.save();
+  console.log('User successfully updated!');
+  });
+  //   User.update({name : {$eq: user.name}}, {$set: {password:{i1: req.params.id}}}, function(err, result){
+  //   console.log("Updated successfully");
+  //   console.log(result);
+  // });
 }
+
+exports.postSelectIcon = function(req,res){
+        //Save selected img
+
+        var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
+        user.save();
+        res.render('select-grid', {title:' | Select Password'});
+    }
 
 exports.getSignIn = function(req,res){
   res.render('signin', {title:' | Sign in'});
@@ -34,7 +54,7 @@ exports.postSignIn = function(req,res){
       }
       else
       {
-        res.render('select-icon', {title:' | Select Password'});
+        res.render('select-grid', {title:' | Select Password'});
       }
     }
   });
