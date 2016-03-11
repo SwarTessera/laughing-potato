@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 //Icon Schema
 var iconSchema = new mongoose.Schema({
   name: { type: String, unique: true, lowercase: true },
-  picture: { type: String, default: '' }
+  picture: { type: String, default: '' },
+  num: Number
 });
 
 

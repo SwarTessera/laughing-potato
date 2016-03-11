@@ -6,8 +6,10 @@ var bodyParser = require('body-parser');
 var Course =require('./server/models/Course');
 var User =require('./server/models/User');
 var Para =require('./server/models/Para');
+var Icon =require('./server/models/Icon');
 
 var userController =require('./server/controllers/user');
+var iconController =require('./server/controllers/icon');
 var courseController =require('./server/controllers/course');
 
 var app = express();
@@ -28,7 +30,7 @@ mongoose.connection.on('error',function(){
 
 //Routes
 app.get('/',courseController.getIndex);
-app.get('/select-grid',userController.getImgGrid);
+app.get('/select-grid',iconController.getIcon);
 app.post('/selecticon/:id',userController.postSelectIcon);
 app.get('/addcourse',courseController.getAddCourse);
 app.post('/addcourse',courseController.postAddCourse);
