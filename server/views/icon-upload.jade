@@ -1,10 +1,10 @@
 extends ./includes/layout
-block main		
-	form(action='/upload', method='post')
-		input.feedback-input(name='name', type='text', placeholder='Name')
+block main
+	.container-fluid.upload
+		h1.text-center Icon Upload
 		|   
-		input.feedback-input(name='email', type='text', placeholder='Email')
-		|   
-		textarea.feedback-input(name='text', placeholder='Comment')
-		|   
-		input(type='submit', value='SUBMIT')
+		form(action='/upload', method='post')
+			input.feedback-input(name='name', type='text', placeholder='Icon ID')
+			input.feedback-input(name='email', type='text', placeholder='Name')
+			textarea.feedback-input(name='text', placeholder='Icon URL')
+			input(type='submit', value='UPLOAD')
