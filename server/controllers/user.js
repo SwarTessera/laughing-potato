@@ -1,5 +1,6 @@
 var User =require('../models/User');
 var Course =require('../models/Course');
+var Icon =require('../models/Icon');
 
 
 var iconcount=1;
@@ -12,7 +13,9 @@ exports.postSignUp = function(req,res){
         //Create a new user
         var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
         user.save();
-        res.render('select-grid', {title:' | Select Password'});
+        Icon.find(function(err,icons){
+          res.render('select-grid', {icons:icons, title:' | Select Password'});
+        });
     }
 
 exports.getImgGrid = function(req,res){
