@@ -110,6 +110,10 @@ input[type=password]{
   margin-bottom: 25px;
 }
 
+select,input:focus { 
+  border:2px solid $tint; 
+}
+
 #icon {
   display: inline-block;
   width: 45px;

@@ -4,7 +4,7 @@ block main
 		h1.text-center Icon Upload
 		|   
 		form(action='/upload', method='post')
-			input.feedback-input(name='name', type='text', placeholder='Icon ID')
-			input.feedback-input(name='email', type='text', placeholder='Name')
-			textarea.feedback-input(name='text', placeholder='Icon URL')
+			input.feedback-input(name='iconId', type='text', placeholder='Icon ID')
+			input.feedback-input(name='name', type='text', placeholder='Name')
+			textarea.feedback-input(name='iconUrl', placeholder='Icon URL')
 			input(type='submit', value='UPLOAD')

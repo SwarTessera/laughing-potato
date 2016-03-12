@@ -30,8 +30,9 @@ mongoose.connection.on('error',function(){
 
 //Routes
 app.get('/',courseController.getIndex);
-app.get('/select-grid',iconController.getIcon);
 app.get('/upload',iconController.getUpload);
+app.post('/upload',iconController.postUpload);
+app.get('/select-grid',iconController.getIcon);
 // app.post('/selecticon/:id',userController.postSelectIcon);
 // app.get('/addcourse',courseController.getAddCourse);
 // app.post('/addcourse',courseController.postAddCourse);
