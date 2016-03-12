@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var iconSchema = new mongoose.Schema({
   name: { type: String, unique: true, lowercase: true },
   picture: { type: String, default: '' },
-  num: Number
+  iconId: Number
 });
 
 

@@ -4,8 +4,10 @@ block main
     .row
       h2 Select 4 images
     .row
-      .col-md-1
-        img(src='#{icon.picture}')     
+      each val in icons
+        .col-md-1
+          p= val.name
+          //img(src='#{val.picture}')     
 
       .col-md-1
         img(src='/icons/Cherry.png')

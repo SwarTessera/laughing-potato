@@ -31,11 +31,12 @@ mongoose.connection.on('error',function(){
 //Routes
 app.get('/',courseController.getIndex);
 app.get('/select-grid',iconController.getIcon);
-app.post('/selecticon/:id',userController.postSelectIcon);
-app.get('/addcourse',courseController.getAddCourse);
-app.post('/addcourse',courseController.postAddCourse);
-app.get('/viewcourses',courseController.getViewCourses);
-app.post('/deletecourse/:id',courseController.postDeleteCourse);
+app.get('/upload',iconController.getUpload);
+// app.post('/selecticon/:id',userController.postSelectIcon);
+// app.get('/addcourse',courseController.getAddCourse);
+// app.post('/addcourse',courseController.postAddCourse);
+// app.get('/viewcourses',courseController.getViewCourses);
+// app.post('/deletecourse/:id',courseController.postDeleteCourse);
 
 
 //login
