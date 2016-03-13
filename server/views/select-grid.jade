@@ -4,10 +4,22 @@ block main
     .row
       h2 Select 4 images
     .row
-      each val in icons
-        .col-md-1
-          //p= val.name
-          img(src='#{val.picture}')     
+      //Randomly display icons
+      - var track = [60]
+      - for (var i = 1; i <= 60; i++) 
+      
+          //low (inclusive) and high (inclusive) 
+          //Math.floor(Math.random() * (high - low+1) + low);
+          - var decision=Math.floor(Math.random()*61);
+          if (!track[decision])
+            - track[decision]=true;
+            each val in icons
+              if (val.iconId==decision)
+                .col-md-1
+                  img.icon-size(src='#{val.picture}')     
+          else 
+            - i--
+      
 
     .row.text-center
       // Button trigger modal
