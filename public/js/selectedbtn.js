@@ -1,3 +1,3 @@
 $('.icon').click(function(){
-  $(this).toggleClass('red');
+  $(this).toggleClass('shadow');
 });

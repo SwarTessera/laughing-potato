@@ -16,7 +16,8 @@ block main
             each val in icons
               if (val.iconId==decision)
                 .col-md-1
-                  img.icon-size(src='#{val.picture}')     
+                  a(href='#')
+                    img.icon.icon-size(src='#{val.picture}')     
           else 
             - i--
       
