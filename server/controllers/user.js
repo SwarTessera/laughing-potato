@@ -3,7 +3,7 @@ var Course =require('../models/Course');
 var Icon =require('../models/Icon');
 
 
-var iconcount=1;
+var currentuser;
 
 exports.getSignUp = function(req,res){
 	res.render('signup', {title:' | Sign up'});
@@ -12,18 +12,23 @@ exports.getSignUp = function(req,res){
 exports.postSignUp = function(req,res){
         //Create a new user
         var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
+        currentuser=req.body.name;
         user.save();
         Icon.find(function(err,icons){
           res.render('select-grid', {icons:icons, title:' | Select Password'});
         });
     }
 
+exports.getFinalSignup = function(req,res){
+    res.render('index', {title:' | Home'});
+}
+
 exports.getImgGrid = function(req,res){
-  User.findOne({name:user.name}, function(err, users){
-  if (err) throw err;
-  user.password.i1='1';
-  user.save();
-  console.log('User successfully updated!');
+  User.findOne({name:currentuser}, function(err, users){
+    if (err) throw err;
+    user.password.i1='1';
+    user.save();
+    console.log('User successfully updated!');
   });
   //   User.update({name : {$eq: user.name}}, {$set: {password:{i1: req.params.id}}}, function(err, result){
   //   console.log("Updated successfully");
@@ -61,24 +66,4 @@ exports.postSignIn = function(req,res){
       }
     }
   });
-	// User.findOne({ username: req.body.userName}, function (err, doc){
-  	// doc is a Document
- //  	if(err)
- //  	{
- //  		console.log(err);
- //  	}
- //  	if(doc)
- //  	{
-	//   		if(req.body.password==doc.password)
-	//   	{
-	//   		res.send('Login was SUCCESSFUL :)');
-	//   	}
-	//   	else
-	//   	{
-	//   		res.send('Login was UNSUCCESSFUL :(');
-	//   	}	
- //  	}
-  	
-	// });
-  
 }

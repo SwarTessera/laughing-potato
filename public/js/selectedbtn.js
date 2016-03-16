@@ -15,16 +15,9 @@ $('.icon').click(function(){
   				x++;
   			}
   			else
-				$("#msg1").text('bello!');
-				//alert("Hi");
-
-  				// $.jAlert({
-  				//     'title': 'It works!',
-  				//     'content': 'YAY!',
-  				//     'theme': 'green',
-  				//     'btns': { 'text': 'close' }
-  				//   });
-  				//$("#msg1").html("You have alredy selected 4 icons!");
+				//$("#msg1").text('bello!');
+        //$.jAlert('This is a custom alert box', 'Alert Dialog');
+				alert("You can only select 4 icons!");
   		}
 	
 });
