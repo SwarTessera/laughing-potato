@@ -23,6 +23,30 @@ exports.getFinalSignup = function(req,res){
     res.render('index', {title:' | Home'});
 }
 
+exports.putSelectedIcon = function(req,res){
+      User.findById(req.param('id'), function(err, database){
+        database.name = request.body.user;
+        database.email = request.body.user;
+        database.save(function(err) {
+             if (err) {
+                console.log('err', err);
+             }
+             res.status(200).json('ok');
+             console.log('Database updated');
+       });
+  
+
+  //User.update({name : {$eq: currentuser}}, {$set: {password:{i1: '1'}}}, function(err, result){
+
+  // User.findOne({name:currentuser}, function(err, users){
+  //   //if (err) throw err;
+  //   user.password.i1='1';
+  //   user.save();
+  //   console.log('User successfully updated!');
+  });
+    //res.render('index', {title:' | Home'});
+}
+
 exports.getImgGrid = function(req,res){
   User.findOne({name:currentuser}, function(err, users){
     if (err) throw err;
@@ -62,7 +86,7 @@ exports.postSignIn = function(req,res){
       }
       else
       {
-        res.render('select-grid', {title:' | Select Password'});
+        res.render('select-icon', {title:' | Select Password'});
       }
     }
   });

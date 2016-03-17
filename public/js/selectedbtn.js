@@ -13,6 +13,19 @@ $('.icon').click(function(){
   			{
   				$(this).addClass('shadow');
   				x++;
+          // $.ajax({ 
+          //  url: '/selectedicon',
+          //  type: 'PUT',
+          //  //cache: false, 
+          //  data: { field1: 1, field2: 2 }, 
+          //  success: function(data){
+          //     alert('Success!')
+          //  }
+          //  , error: function(jqXHR, textStatus, err){
+          //      alert('text status '+textStatus+', err '+err)
+          //  }
+          //    })
+          // });     
   			}
   			else
 				//$("#msg1").text('bello!');

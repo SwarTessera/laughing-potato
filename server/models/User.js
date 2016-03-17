@@ -8,8 +8,6 @@ var userSchema = new mongoose.Schema({
   question: String,
   answer: String,
 
-  tokens: Array,
-
   profile: {
     email: { type: String, unique: true, default: '' },
     gender: { type: String, default: '' },
@@ -23,8 +21,6 @@ var userSchema = new mongoose.Schema({
     i4: { type: String, unique: true, default: ''}
   },
 
-  resetPasswordToken: String,
-  resetPasswordExpires: Date
 });
 
 /**
