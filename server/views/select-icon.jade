@@ -2,25 +2,37 @@ extends ./includes/layout
 block main
   .container-fluid.grid
     .row
-      h2 Select the icons which lies inside the square formed by your 4 icons.
-      p#msg1
+      h4 Select the icons which lies inside the square formed by your 4 icons.
     .row
-      //Randomly display icons
-      - var track = [60]
+      //matrix framework
+      -var count=1;
+      -var r=0; //row no.
+      -var c=1;  //column no.
       - for (var i = 1; i <= 60; i++) 
+        if(count%12 == 1)
+          - r++
+          - c=1
+        .col-md-1(id=""+r+"|"+c)
+        - c++
+        - count++
+
+  
+      //- //Randomly display icons
+      //- - var track = [60]
+      //- - for (var i = 1; i <= 60; i++) 
       
-          //low (inclusive) and high (inclusive) 
-          //Math.floor(Math.random() * (high - low+1) + low);
-          - var decision=Math.floor(Math.random()*61);
-          if (!track[decision])
-            - track[decision]=true;
-            each val in icons
-              if (val.iconId==decision)
-                .col-md-1
-                  a(href='#')
-                    img.icon.icon-size(src='#{val.picture}')     
-          else 
-            - i--
+      //-     //low (inclusive) and high (inclusive) 
+      //-     //Math.floor(Math.random() * (high - low+1) + low);
+      //-     - var decision=Math.floor(Math.random()*61);
+      //-     if (!track[decision])
+      //-       - track[decision]=true;
+      //-       each val in icons
+      //-         if (val.iconId==decision)
+      //-           .col-md-1
+      //-             a(href='#')
+      //-               img.icon.icon-size(src='#{val.picture}')     
+      //-     else 
+      //-       - i--
       
 
     .row.text-center
