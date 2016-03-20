@@ -16,7 +16,7 @@ function session()
 	var y=Math.floor(Math.random()*10);
 	usedPosition[x][y]=true;
 
-	//select seed password component
+	//select random password component
 	var p = new Array(4);
 	for (var i=0; i<4; i++)
 	{
@@ -29,6 +29,7 @@ function session()
 		else
 			i--;
 	}
+
 	//plot the vertices
 	var x1=x+1;		var y1=y+1;
 	var x2=x1+2;	var y2=y1+2;
@@ -36,4 +37,20 @@ function session()
 	document.getElementById(x1+'|'+y2).innerHTML=p[1];
 	document.getElementById(x2+'|'+y1).innerHTML=p[2];
 	document.getElementById(x2+'|'+y2).innerHTML=p[3];
+
+	// //display remaining images randomly
+	// for (var i = 0; i < 5; i++)
+	// { 
+	// 	for (var j = 0; j < 12; j++) 
+	// 	{
+	// 	//low (inclusive) and high (inclusive) 
+	// 	//Math.floor(Math.random() * (high - low+1) + low);
+	// 	var decision=Math.floor(Math.random()*25);
+	// 	if (!usedLines[decision])
+	// 	{
+	// 		usedLines[decision]=true;
+	// 		document.getElementById('line'+i).innerHTML=paragraphArray[decision];
+	// 	}
+	// 	}	
+	// }
 }

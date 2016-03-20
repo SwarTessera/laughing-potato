@@ -1,11 +1,24 @@
-var x=0;
+var x=0;  //counter for icons that need to be selected 
+var y=0;  //counter for selected password
+var point=0;  //point to the deselected 
+
+var password = [0, 0, 0, 0];;
 $('.icon').click(function(){
+var currentId = $(this).attr('id'); //know the id of the clicked icon
 
 		if($(this).hasClass('shadow'))
 		{
   			$(this).removeClass('shadow');
   			x--;
-  			$("#msg1").text('');
+        for(var i=0;i<4;i++)
+        {
+          if(password[i]==currentId)
+          {
+              password[i]=0;
+              // point=i;
+          }
+        }
+  			//$("#msg1").text('');
 		}
 		else
   		{
@@ -13,6 +26,27 @@ $('.icon').click(function(){
   			{
   				$(this).addClass('shadow');
   				x++;
+          // if(point!=0)
+          // {
+          //   password[point] = currentId;
+          //   point=0;
+          // }
+          // else
+          // {
+          //   password[y] = currentId;
+          //   y++;
+          // }
+
+          for(var i=0;i<4;i++)
+          {
+            if(password[i]==0)
+            {
+                password[i]=currentId;
+                i=5;
+                // point=i;
+            }
+          }
+
           // $.ajax({ 
           //  url: '/selectedicon',
           //  type: 'PUT',
@@ -28,9 +62,8 @@ $('.icon').click(function(){
           // });     
   			}
   			else
-				//$("#msg1").text('bello!');
-        //$.jAlert('This is a custom alert box', 'Alert Dialog');
-				alert("You can only select 4 icons!");
+        alert(password[0]+','+password[1]+','+password[2]+','+password[3]);
+				//alert("You can only select 4 icons!");
   		}
 	
 });

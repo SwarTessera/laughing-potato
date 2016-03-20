@@ -27,7 +27,6 @@ function generate()
 		"A purple pig and a green donkey flew a kite in the middle of the night.",
 		"Lets all be unique together until we realise we are all the same."
 	];  
-	//document.getElementById('1|2').innerHTML='hello';
 
 	var usedLines = new Array(25);
 		for (var i = 1; i <= 5; i++) 
