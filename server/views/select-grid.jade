@@ -24,7 +24,7 @@ block main
 
     .row.text-center
       // Button trigger modal
-      button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onmouseover="generate()")
+      button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onclick="generate()")
         | Record your voice!
       form(name="form", action='/', method="get")
         input.btn.btn-primary.btn-lg(type="submit", value='Submit')

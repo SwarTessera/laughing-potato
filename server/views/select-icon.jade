@@ -1,9 +1,15 @@
 extends ./includes/layout
 block main
-  newSession()
   .container-fluid.grid
-    .row
-      h4 Select the icons which lies inside the square formed by your 4 icons.
+    .row.info-panel
+      //h4 Select the icons which lies inside the square formed by your 4 icons.
+      //.alert.alert-info.alert-dismissible(role='alert').text-center
+        button.close(type='button', data-dismiss='alert', aria-label='Close')
+            span(aria-hidden='true') &times;
+            |   
+        strong Select
+        |  the icon which lie inside the square formed by your 4 icons.
+
     .row
       //matrix framework
       -var count=1;
@@ -13,7 +19,8 @@ block main
         if(count%12 == 1)
           - r++
           - c=1
-        .col-md-1(id=""+r+"|"+c)
+        .col-md-1
+          h4(id=r+"|"+c)
         - c++
         - count++
 
@@ -38,10 +45,11 @@ block main
 
     .row.text-center
       // Button trigger modal
-      button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onmouseover="generate()")
+      button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onclick="generate()")
         | Record your voice!
       form(name="form", action='/', method="get")
         input.btn.btn-primary.btn-lg(type="submit", value='Submit')
+      img(src='http://i.imgur.com/OqzBgZI.png', onload='session()')
       
 
     #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
@@ -64,5 +72,3 @@ block main
             button.btn.btn-default(type='button', data-dismiss='modal') Close
             |         
            // buttonbtn.btn-.primary(type='button') Save changes
-
-
