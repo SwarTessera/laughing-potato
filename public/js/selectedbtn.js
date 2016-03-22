@@ -1,8 +1,8 @@
 var x=0;  //counter for icons that need to be selected 
 var y=0;  //counter for selected password
 var point=0;  //point to the deselected 
+var password = [0, 0, 0, 0];  //selected images
 
-var password = [0, 0, 0, 0];;
 $('.icon').click(function(){
 var currentId = $(this).attr('id'); //know the id of the clicked icon
 
@@ -66,4 +66,11 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
 				//alert("You can only select 4 icons!");
   		}
 	
+});
+
+
+$('#signup-save').click(function(){
+  $.post('/save', {pass1: password[0], pass2: password[1], pass3: password[2], pass4: password[3]}, function(data) {
+    //console.log("whee!")
+  });
 });

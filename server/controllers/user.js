@@ -2,7 +2,6 @@ var User =require('../models/User');
 var Course =require('../models/Course');
 var Icon =require('../models/Icon');
 
-
 var currentuser;
 
 exports.getSignUp = function(req,res){
@@ -12,12 +11,24 @@ exports.getSignUp = function(req,res){
 exports.postSignUp = function(req,res){
         //Create a new user
         var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
-        currentuser=req.body.name;
         user.save();
+        currentuser=user.name;
+
         Icon.find(function(err,icons){
           res.render('select-grid', {icons:icons, title:' | Select Password'});
         });
     }
+
+exports.postSave = function(req,res){
+    //Update user with password
+    User.findOne({name: currentuser}, function(err,user){
+      user.password.i1=req.body.pass1;
+      user.password.i2=req.body.pass2;
+      user.password.i3=req.body.pass3;
+      user.password.i4=req.body.pass4;
+      user.save();
+    });
+}
 
 exports.getFinalSignup = function(req,res){
     res.render('index', {title:' | Home'});
