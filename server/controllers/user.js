@@ -76,7 +76,7 @@ exports.postSignIn = function(req,res){
       }
       else
       {
-        res.render('select-icon', {title:' | Select Password'});
+        res.render('select-icon', {doc:doc, title:' | Select Password'});
       }
     }
   });

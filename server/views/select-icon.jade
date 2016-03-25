@@ -35,7 +35,7 @@ block main
       //-               img.icon.icon-size(src='#{val.picture}')     
       //-     else 
       //-       - i--
-      
+    //-var hi=doc.password;
 
     .row.text-center
       // Button trigger modal
@@ -43,7 +43,7 @@ block main
         | Record your voice!
       form(name="form", action='/', method="get")
         input.btn.btn-primary.btn-lg(type="submit", value='Submit')
-      img(src='http://i.imgur.com/OqzBgZI.png', onload='session()')
+      img(src='http://i.imgur.com/OqzBgZI.png', onload='session(#{doc.password.i1}, #{doc.password.i2}, #{doc.password.i3}, #{doc.password.i4})')
       
 
     #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')

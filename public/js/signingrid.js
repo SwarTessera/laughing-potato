@@ -1,7 +1,14 @@
-function session()
+var p = new Array(4);
+var pwd_set = new Array(4);
+
+function session(a, b, c, d)
 {
 	//alert('hi');
 	//document.getElementById('2|2').innerHTML='hello';
+	pwd_set[0]=a;
+	pwd_set[1]=b;
+	pwd_set[2]=c;
+	pwd_set[3]=d;
 
 	var usedIcons = new Array(60);
 	var usedPwrd = new Array(4);
@@ -17,14 +24,15 @@ function session()
 	usedPosition[x][y]=true;
 
 	//select random password component
-	var p = new Array(4);
+	// var p = new Array(4);
 	for (var i=0; i<4; i++)
 	{
-		var x=Math.ceil(Math.random()*4);
+		var x=Math.floor(Math.random()*4);
 		if (!usedPwrd[x])
 		{
 			usedPwrd[x]=true;
-			p[i]=x;
+			//-var xx='i'+x;
+			p[i]=pwd_set[x];
 		}
 		else
 			i--;
