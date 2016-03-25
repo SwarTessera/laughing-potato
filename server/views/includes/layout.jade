@@ -5,11 +5,13 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1')
     // The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
     title Swar Tessera#{title}
-    // Bootstrap
-    script(type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js?ver=1.4.2')
+
+    script(src='/vendor/jquery/dist/jquery.min.js')
+    //- Since function onLoad has to be defined bfore it is called
+    script(type="text/javascript" src="/js/signingrid.js")
+
     link(href='/vendor/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')  
     link(href='/vendor/font-awesome-4.5.0/css/font-awesome.min.css', rel='stylesheet')
-    link(href="/vendor/jAlert-master/src/jAlert-v3.css" rel="stylesheet")
     link(href='/css/main.css', rel='stylesheet')
     link(href='favicon.ico', rel='shortcut icon', type='image/x-icon')
 
@@ -18,14 +20,11 @@ html(lang='en')
     block main 
     include ../partials/footer
 
-    //script(type="text/javascript", src="/vendor/jquery/dist/jquery-2.1.4.js")
     // jQuery (necessary for Bootstrap's JavaScript plugins)
-    //script(src='/vendor/bootstrap/dist/js/jquery-2.1.4.js')
+    //- script(src='/vendor/jquery/dist/jquery.min.js')
     // Include all compiled plugins (below), or include individual files as needed
     script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
-    //script(src="/vendor/jAlert-master/src/jAlert-v3.js")
-    //script(src="/vendor/jAlert-master/src/jAlert-functions.js")
 
     script(type="text/javascript" src="/js/selectedbtn.js")
-    script(type="text/javascript" src="/js/signingrid.js")
+    //- script(type="text/javascript" src="/js/signingrid.js")
     script(type="text/javascript" src="js/randompara.js")  

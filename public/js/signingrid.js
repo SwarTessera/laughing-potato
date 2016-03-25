@@ -1,6 +1,6 @@
 function session()
 {
-	//salert('hi');
+	//alert('hi');
 	//document.getElementById('2|2').innerHTML='hello';
 
 	var usedIcons = new Array(60);

@@ -34,7 +34,6 @@ app.get('/upload',iconController.getUpload);
 app.post('/upload',iconController.postUpload);
 app.get('/finalsignup',userController.getFinalSignup);
 app.post('/save', userController.postSave);
-//app.put('/selectedicon',userController.putSelectedIcon);
 //app.get('/select-grid',iconController.getIcon);
 // app.post('/selecticon/:id',userController.postSelectIcon);
 // app.get('/addcourse',courseController.getAddCourse);

@@ -46,20 +46,6 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
                 // point=i;
             }
           }
-
-          // $.ajax({ 
-          //  url: '/selectedicon',
-          //  type: 'PUT',
-          //  //cache: false, 
-          //  data: { field1: 1, field2: 2 }, 
-          //  success: function(data){
-          //     alert('Success!')
-          //  }
-          //  , error: function(jqXHR, textStatus, err){
-          //      alert('text status '+textStatus+', err '+err)
-          //  }
-          //    })
-          // });     
   			}
   			else
         alert(password[0]+','+password[1]+','+password[2]+','+password[3]);
