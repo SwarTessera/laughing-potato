@@ -5,7 +5,7 @@ var iconSet = new Array(6);	//the randomized icons to be displayed
 	for (var i=0; i<6; i++)
 		iconSet[i]=new Array(13);
 
-function session(a, b, c, d, iconz)
+function session(a, b, c, d, ico)
 {
 	//alert('hi');
 	//document.getElementById('2|2').innerHTML='hello';
@@ -17,7 +17,7 @@ function session(a, b, c, d, iconz)
 	//var xyz = JSON.parse(iconz);
 	//icon = icon;
 	//alert(xyz);
-	//var ico = JSON.parse(iconz);
+	var iconz = ico;
 	var usedIcons = new Array(61);
 	var usedPwrd = new Array(4);
 	//defining 2D matix as JS doesn't support 2D matrix
@@ -49,13 +49,10 @@ function session(a, b, c, d, iconz)
 	//plot the vertices
 	var x2=x1+2;		var y2=y1+2;
 
-	document.getElementById(x1+'|'+y1).innerHTML=p[0];
+	//set taken position
 	usedPosition[x1][y1]=true;
-	document.getElementById(x1+'|'+y2).innerHTML=p[1];
 	usedPosition[x1][y2]=true;
-	document.getElementById(x2+'|'+y1).innerHTML=p[2];
 	usedPosition[x2][y1]=true;
-	document.getElementById(x2+'|'+y2).innerHTML=p[3];
 	usedPosition[x2][y2]=true;
 
 	//alert(x1+'  '+y1+'|'+x1+'  '+y2+'|'+x2+'  '+y1+'|'+x2+'  '+y2);
@@ -80,7 +77,7 @@ function session(a, b, c, d, iconz)
 					usedIcons[x]=true;
 					usedPosition[i][j]=true;
 					iconSet[i][j]=true;
-					document.getElementById(i+'|'+j).innerHTML=x;
+					document.getElementById(i+'|'+j).src=iconz.data[x-1].picture;
 					//alert('set '+i+','+j);
 					//flag=0;
 					//j++;
@@ -95,4 +92,10 @@ function session(a, b, c, d, iconz)
 		}
 		//i++;
 	}
+	
+	//since a lag reveals the 4 icons
+	document.getElementById(x1+'|'+y1).src=iconz.data[p[0]-1].picture;
+	document.getElementById(x1+'|'+y2).src=iconz.data[p[1]-1].picture;
+	document.getElementById(x2+'|'+y1).src=iconz.data[p[2]-1].picture;
+	document.getElementById(x2+'|'+y2).src=iconz.data[p[3]-1].picture;
 }
