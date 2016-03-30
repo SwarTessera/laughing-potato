@@ -18,32 +18,35 @@ block main
         - c++
         - count++
 
-  
-      //- //Randomly display icons
-      //- - var track = [60]
-      //- - for (var i = 1; i <= 60; i++) 
-      
-      //-     //low (inclusive) and high (inclusive) 
-      //-     //Math.floor(Math.random() * (high - low+1) + low);
-      //-     - var decision=Math.floor(Math.random()*61);
-      //-     if (!track[decision])
-      //-       - track[decision]=true;
-      //-       each val in icons
-      //-         if (val.iconId==decision)
-      //-           .col-md-1
-      //-             a(href='#')
-      //-               img.icon.icon-size(src='#{val.picture}')     
-      //-     else 
-      //-       - i--
-    //-var hi=doc.password;
-
     .row.text-center
       // Button trigger modal
       button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onclick="generate()")
         | Record your voice!
       form(name="form", action='/', method="get")
         input.btn.btn-primary.btn-lg(type="submit", value='Submit')
-      img(src='http://i.imgur.com/OqzBgZI.png', onload='session(#{doc.password.i1}, #{doc.password.i2}, #{doc.password.i3}, #{doc.password.i4})')
+
+      
+      // -var xyz = 3;
+      // -var a = 1;
+      //- each val in iconList 
+      //-   - iconSet= doc.password.i1;
+      //-   - i++;
+      
+      img(src='http://i.imgur.com/OqzBgZI.png', onload='session(#{doc.password.i1}, #{doc.password.i2}, #{doc.password.i3}, #{doc.password.i4}, #{iconList})')
+  
+      //-display icons #{iconList}
+      //- -var position;
+      //- script.
+      //-   -position = getIcon()
+      //- -for (var i = 0; i < 3; i++)
+      //-   -for (var j = 0; j < 2; j++) 
+      //-       each val in iconList
+      //-           if (val.iconId==position[i][j])
+      //-             .col-md-1
+      //-               a(href='#')
+      //-                 img.icon.icon-size(src='#{val.picture}')   
+        
+      
       
 
     #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
@@ -56,7 +59,7 @@ block main
             h4#myModalLabel.modal-title Read the following sentences loud and clear
           |       
           .modal-body
-            p#line1
+            p#line1 
             p#line2
             p#line3
             p#line4

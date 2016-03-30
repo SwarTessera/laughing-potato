@@ -1,0 +1,1 @@
+"C:/Program Files/MATLAB/R2014a/bin/matlab.exe" -nodisplay -nosplash -nodesktop -r "run('C:/Users/cheryl/Documents/MATLAB/Demo/voicerecognition.m');exit;"
