@@ -13,7 +13,7 @@ exports.postSignUp = function(req,res){
         //Create a new user
         var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
         user.save();
-        currentuser=user.name;
+        currentuser=req.body.name;
 
         Icon.find(function(err,icons){
           res.render('select-grid', {icons:icons, title:' | Select Password'});
@@ -22,12 +22,13 @@ exports.postSignUp = function(req,res){
 
 exports.postSave = function(req,res){
     //Update user with password
-    User.findOne({name: currentuser}, function(err,user){
-      user.password.i1=req.body.pass1;
-      user.password.i2=req.body.pass2;
-      user.password.i3=req.body.pass3;
-      user.password.i4=req.body.pass4;
-      user.save();
+    User.update({'name': currentuser}, {$set: {'password.i1':req.body.pass1, 'password.i2':req.body.pass2, 'password.i3':req.body.pass3, 'password.i4':req.body.pass4}}, function(err,user){
+
+      // user.password.i1=req.body.pass1;
+      // user.password.i2=req.body.pass2;
+      // user.password.i3=req.body.pass3;
+      // user.password.i4=req.body.pass4;
+      // user.save();
 
       res.render('index', {title:' | Home'});
     });
@@ -42,6 +43,17 @@ exports.postCheck = function(req,res){
       // }
     //});
 }
+
+//in check!
+//if (req.body.token==req.body.checker && user.uid==req.body.read)
+// {
+//   res.render('final', {title:' | Welcome'});
+// }
+// else
+// {
+  //send alert also!!!!!!!!
+//   res.render('signin', {title:' | Welcome'});
+// }
 
 exports.getFinalSignup = function(req,res){
     res.render('index', {title:' | Home'});

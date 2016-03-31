@@ -22,7 +22,7 @@ block main
       // Button trigger modal
       button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onclick="generate()")
         | Record your voice!
-      form(name="form", method="post", action="/save")
+      form(name="form", method="post", action="/check")
         input.btn.btn-primary.btn-lg#signup-save(type='submit', value='Submit')
 
       

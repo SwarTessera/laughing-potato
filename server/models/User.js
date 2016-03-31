@@ -17,10 +17,10 @@ var userSchema = new mongoose.Schema({
   },
 
   password: {
-    i1: { type: String, unique: true, default: ''},
-    i2: { type: String, unique: true, default: ''},
-    i3: { type: String, unique: true, default: ''},
-    i4: { type: String, unique: true, default: ''}
+    i1: { type: String, default: ''},
+    i2: { type: String, default: ''},
+    i3: { type: String, default: ''},
+    i4: { type: String, default: ''}
   },
 
 });
