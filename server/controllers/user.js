@@ -3,6 +3,7 @@ var Course =require('../models/Course');
 var Icon =require('../models/Icon');
 
 var currentuser;
+var loginuser;
 
 exports.getSignUp = function(req,res){
 	res.render('signup', {title:' | Sign up'});
@@ -32,6 +33,16 @@ exports.postSave = function(req,res){
     });
 }
 
+exports.postCheck = function(req,res){
+    //Update user with password
+    //User.findOne({name: loginuser}, function(err,user){
+      // if(req.body.token==req.body.checker)
+      // {
+        res.render('final', {title:' | Welcome'});
+      // }
+    //});
+}
+
 exports.getFinalSignup = function(req,res){
     res.render('index', {title:' | Home'});
 }
@@ -42,7 +53,7 @@ exports.getImgGrid = function(req,res){
     if (err) throw err;
     user.password.i1='1';
     user.save();
-    console.log('User successfully updated!');
+    //console.log('User successfully updated!');
   });
   //   User.update({name : {$eq: user.name}}, {$set: {password:{i1: req.params.id}}}, function(err, result){
   //   console.log("Updated successfully");
@@ -77,6 +88,7 @@ exports.postSignIn = function(req,res){
       else
       {
         Icon.find(function(err,icons){
+          loginuser=doc.name;
           res.render('select-icon', {doc:doc, iconList:JSON.stringify({data:icons}), title:' | Select Password'});
         });
       }

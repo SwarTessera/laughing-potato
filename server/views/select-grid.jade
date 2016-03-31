@@ -26,9 +26,8 @@ block main
       // Button trigger modal
       button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onclick="generate()")
         | Record your voice!
-      form(name="form") 
-        //- , action='/password', method="post")
-        input.btn.btn-primary.btn-lg#signup-save(type="submit", value='Submit')
+      form(name="form", method="post", action="/save")
+        input.btn.btn-primary.btn-lg#signup-save(type='submit', value='Submit')
       
 
     #myModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')

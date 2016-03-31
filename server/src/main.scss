@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-
 $tint: rgb(249, 158, 0);
 $tint1: rgba(249, 158, 0, 0.65);
 $tint2: rgba(249, 158, 0, 0.25);
@@ -15,6 +13,7 @@ $wah: white;
 @import 'grid';
 @import 'imghighlight';
 @import 'footer';
+@import 'welcome';
 
 body{
   padding-top: 90px;

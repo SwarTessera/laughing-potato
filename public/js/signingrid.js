@@ -1,6 +1,6 @@
 var pwd_set = new Array(4);	//reads user's password values
 var p = new Array(4);		//randomizes password compnents
-//var iconz = [];	//icon list
+var shudSelect;				//position the user should click on
 var iconSet = new Array(6);	//the randomized icons to be displayed
 	for (var i=0; i<6; i++)
 		iconSet[i]=new Array(13);
@@ -55,6 +55,9 @@ function session(a, b, c, d, ico)
 	usedPosition[x2][y1]=true;
 	usedPosition[x2][y2]=true;
 
+	//calculate icon position to be clicked
+	var m=(x1+x2)/2;	var n=(y1+y2)/2;
+
 	//alert(x1+'  '+y1+'|'+x1+'  '+y2+'|'+x2+'  '+y1+'|'+x2+'  '+y2);
 
 	//display remaining images randomly
@@ -78,6 +81,11 @@ function session(a, b, c, d, ico)
 					usedPosition[i][j]=true;
 					iconSet[i][j]=true;
 					document.getElementById(i+'|'+j).src=iconz.data[x-1].picture;
+					if(i==m && j==n)
+					{
+						shudSelect=i+'|'+j;
+						alert(shudSelect);
+					}
 					//alert('set '+i+','+j);
 					//flag=0;
 					//j++;
