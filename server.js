@@ -2,6 +2,7 @@ var express = require('express'); //node_module for express server
 //MongoDb Driver or Middleware
 var mongoose = require('mongoose'); 
 var bodyParser = require('body-parser');
+var autoIncrement = require('mongoose-auto-increment');
 
 var Course =require('./server/models/Course');
 var User =require('./server/models/User');

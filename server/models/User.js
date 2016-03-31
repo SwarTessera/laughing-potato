@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
-
+var autoIncrement = require('mongoose-auto-increment');
 var bcrypt = require('bcrypt-nodejs');
+
+autoIncrement.initialize(mongoose.connection);
 
 //User Schema
 var userSchema = new mongoose.Schema({
@@ -23,33 +25,12 @@ var userSchema = new mongoose.Schema({
 
 });
 
-/**
- * Password hash middleware.
- */
-// userSchema.pre('save', function(next) {
-//   var user = this;
-//   if (!user.isModified('password')) return next();
-//   bcrypt.genSalt(10, function(err, salt) { //salt is a key for hashing value for encryption
-//     if (err) return next(err);
-//     bcrypt.hash(user.password, salt, null, function(err, hash) {
-//       if (err) return next(err);
-//       user.password = hash;
-//       next();
-//     });
-//   });
-// });
-
-/**
- * Helper method for validating user's password.
- */
-// userSchema.methods.comparePassword = 
-// 	function(candidatePassword, cb) {
-//   		bcrypt.compare(candidatePassword, this.password, 
-//   	function(err, isMatch) {
-//     	if (err) return cb(err);
-//     	cb(null, isMatch);
-//   });
-// };
+userSchema.plugin(autoIncrement.plugin, {
+    model: 'User',
+    field: 'uId',
+    startAt: 1,
+    //incrementBy: 100
+});
 
 // Compile Schema into a mongoose Model
 module.exports = mongoose.model('User', userSchema);
