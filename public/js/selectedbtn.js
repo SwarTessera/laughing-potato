@@ -57,6 +57,6 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
 
 $('#signup-save').click(function(){
   $.post('/save', {pass1: password[0], pass2: password[1], pass3: password[2], pass4: password[3]}, function(data) {
-    console.log(pass1);
+    //console.log(pass1);
   });
 });

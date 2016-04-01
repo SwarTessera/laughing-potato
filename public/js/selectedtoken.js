@@ -1,7 +1,5 @@
-var x=0;  //counter for icons that need to be selected 
-var y=0;  //counter for selected password
-var point=0;  //point to the deselected 
-var tessera = 0;  //selected image
+var q=0;  //counter for icons that need to be selected 
+var tessera;  //selected image
 
 $('.token').click(function(){
 var currentId = $(this).attr('id'); //know the id of the clicked icon
@@ -9,8 +7,8 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
 		if($(this).hasClass('shadow'))
 		{
   			$(this).removeClass('shadow');
-        tessera = 0;
-  			x = 0;
+        //tessera = 0;
+  			q = 0;
      //    for(var i=0;i<4;i++)
      //    {
      //      if(password[i]==currentId)
@@ -22,11 +20,11 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
 		}
 		else
   		{
-  			if(x==0)
+  			if(q==0)
   			{
   				$(this).addClass('shadow');
           tessera = currentId;
-  				x = 1;
+  				q = 1;
           
           // for(var i=0;i<4;i++)
           // {
@@ -47,7 +45,8 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
 
 
 $('#signin-check').click(function(){
-  $.post('/check', {tessera: 1, checker: 1}, function(data) {
+  var hi=tessera==shudSelect;
+  $.post('/check', {tess: hi, swar: result}, function(data) {
     //console.log("whee!")
   });
 });

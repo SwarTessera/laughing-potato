@@ -1,7 +1,30 @@
 var User =require('../models/User');
 var Course =require('../models/Course');
 var Icon =require('../models/Icon');
+var fs = require('fs');
+var fileName = "myTextLog.txt";
+var abc;
+exports.getReader = function(req,res){
+  //res.render('signup', {title:' | Sign up'});
+  console.log("hi");
+  fs.exists(fileName, function(exists) {
+    if (exists) {
+      fs.stat(fileName, function(error, stats) {
+        fs.open(fileName, "r", function(error, fd) {
+          var buffer = new Buffer(stats.size);
 
+          fs.read(fd, buffer, 0, buffer.length, null, function(error, bytesRead, buffer) {
+            abc = buffer.toString("utf8", 0, buffer.length);
+
+            console.log(abc);
+            fs.close(fd);
+            res.render('test', {title:' | yeahahh!'});
+          });
+        });
+      });
+    }
+  });
+}
 var currentuser;
 var loginuser;
 
@@ -22,26 +45,35 @@ exports.postSignUp = function(req,res){
 
 exports.postSave = function(req,res){
     //Update user with password
+    console.log(req.body.pass1);
     User.update({'name': currentuser}, {$set: {'password.i1':req.body.pass1, 'password.i2':req.body.pass2, 'password.i3':req.body.pass3, 'password.i4':req.body.pass4}}, function(err,user){
-
-      // user.password.i1=req.body.pass1;
-      // user.password.i2=req.body.pass2;
-      // user.password.i3=req.body.pass3;
-      // user.password.i4=req.body.pass4;
-      // user.save();
 
       res.render('index', {title:' | Home'});
     });
 }
 
 exports.postCheck = function(req,res){
-    //Update user with password
-    //User.findOne({name: loginuser}, function(err,user){
-      // if(req.body.token==req.body.checker)
-      // {
-        res.render('final', {title:' | Welcome'});
-      // }
-    //});
+    //Access on signin
+    //console.log(req.body.tess);
+    //console.log(req.body.checker);
+    
+    User.findOne({'name': loginuser}, function(err,user){
+      //var cmpr=req.body.tess===req.body.checker;
+      //console.log(req.body.tess);
+      var test=req.body.tess;
+      var temp=req.body.swar;
+      console.log(test);
+      console.log(temp);
+
+      if (!test) //&& (req.body.swar==user.uId.toString()))
+      {
+        res.render('final', {user:user, title:' | Welcome'});
+      }
+      else
+      {
+        res.render('signin', {title:' | Redo'});
+      }
+    });
 }
 
 //in check!
