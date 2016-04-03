@@ -13,6 +13,8 @@ var userController =require('./server/controllers/user');
 var iconController =require('./server/controllers/icon');
 var courseController =require('./server/controllers/course');
 
+var emailer =require('./server/config/email');
+
 var app = express();
 
 app.set('views',__dirname+'/server/views'); 
@@ -50,6 +52,9 @@ app.get('/signup', userController.getSignUp);
 app.post('/signup',userController.postSignUp);
 app.get('/signin', userController.getSignIn);
 app.post('/signin', userController.postSignIn);
+
+
+app.get("/nodemailer",emailer.getMailer);
 
 app.listen(3020);
 console.log("Express is listening at port 3020");
