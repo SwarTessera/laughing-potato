@@ -32,13 +32,13 @@ mongoose.connection.on('error',function(){
 
 
 //Routes
-// app.get('/',courseController.getIndex);
-// app.get('/upload',iconController.getUpload);
-// app.post('/upload',iconController.postUpload);
-//app.get('/finalsignup',userController.getFinalSignup);
-app.get('/reader',userController.getReader);
-// app.post('/save', userController.postSave);
-// app.post('/check', userController.postCheck);
+app.get('/',courseController.getIndex);
+app.get('/upload',iconController.getUpload);
+app.post('/upload',iconController.postUpload);
+app.get('/finalsignup',userController.getFinalSignup);
+app.get('/reader',readFile.getReader);
+app.post('/save', userController.postSave);
+app.post('/check', userController.postCheck);
 
 //app.get('/select-grid',iconController.getIcon);
 // app.post('/selecticon/:id',userController.postSelectIcon);

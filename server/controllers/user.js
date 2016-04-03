@@ -1,32 +1,11 @@
 var User =require('../models/User');
 var Course =require('../models/Course');
 var Icon =require('../models/Icon');
-var fs = require('fs');
-var fileName = "myTextLog.txt";
-var abc;
-exports.getReader = function(req,res){
-  //res.render('signup', {title:' | Sign up'});
-  console.log("hi");
-  fs.exists(fileName, function(exists) {
-    if (exists) {
-      fs.stat(fileName, function(error, stats) {
-        fs.open(fileName, "r", function(error, fd) {
-          var buffer = new Buffer(stats.size);
 
-          fs.read(fd, buffer, 0, buffer.length, null, function(error, bytesRead, buffer) {
-            abc = buffer.toString("utf8", 0, buffer.length);
-
-            console.log(abc);
-            fs.close(fd);
-            res.render('test', {title:' | yeahahh!'});
-          });
-        });
-      });
-    }
-  });
-}
 var currentuser;
 var loginuser;
+var swar;
+var tess;
 
 exports.getSignUp = function(req,res){
 	res.render('signup', {title:' | Sign up'});
@@ -56,16 +35,19 @@ exports.postCheck = function(req,res){
     //Access on signin
     //console.log(req.body.tess);
     //console.log(req.body.checker);
-    
+    var myData = {
+        image: req.body.pass1
+    };
+    tess=JSON.stringify(myData);
     User.findOne({'name': loginuser}, function(err,user){
       //var cmpr=req.body.tess===req.body.checker;
       //console.log(req.body.tess);
-      var test=req.body.tess;
-      var temp=req.body.swar;
-      console.log(test);
-      console.log(temp);
+      // var test=req.body.tess;
+      // var temp=req.body.swar;
+      console.log(user);
+      // console.log(temp);
 
-      if (!test) //&& (req.body.swar==user.uId.toString()))
+      if (myData.image) //&& (req.body.swar==user.uId.toString()))
       {
         res.render('final', {user:user, title:' | Welcome'});
       }
