@@ -2,10 +2,14 @@ function abc()
 {
 	var fso = new ActiveXObject("Scripting.FileSystemObject"); 
 
-	var s = fso.OpenTextFile("C:\\Users\\cheryl\\Downloads\\lisa\\fileuploadfinal\\myTextLog.txt",1,true);
+	var s = fso.OpenTextFile("C:\\Projects\\BE\\laughing-potato\\public\\js\\voiceLog.txt",1,true);
 
-	var row = s.ReadLine();
+	var lines = s.ReadAll(); 
+	s.Close(); 
 
+	var splitline = lines.split('\r\n'); 
+	var row = splitline[splitline.length-2];	
+	
 	alert(row);
 
 }

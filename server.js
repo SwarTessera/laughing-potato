@@ -13,8 +13,6 @@ var userController =require('./server/controllers/user');
 var iconController =require('./server/controllers/icon');
 var courseController =require('./server/controllers/course');
 
-var readFile=require('./server/config/fileupload');
-
 var app = express();
 
 app.set('views',__dirname+'/server/views'); 
@@ -36,7 +34,6 @@ app.get('/',courseController.getIndex);
 app.get('/upload',iconController.getUpload);
 app.post('/upload',iconController.postUpload);
 app.get('/finalsignup',userController.getFinalSignup);
-app.get('/reader',readFile.getReader);
 app.post('/save', userController.postSave);
 app.post('/check', userController.postCheck);
 

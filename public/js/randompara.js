@@ -1,6 +1,6 @@
 function generate()
 {
-	//runbat();
+	runbat();
 	var paragraphArray = [
 		"The quick brown fox jumps over the lazy dog.",
 		"Sixty zippers were quickly picked from the woven jute bag.",
