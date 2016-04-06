@@ -1,7 +1,7 @@
 var nodemailer = require("nodemailer");
 
 
-exports.getMailer=function(res,req){
+exports.getMailer=function(req,res){
 
    //your nodemailer logic here to send mail
 
@@ -13,19 +13,24 @@ exports.getMailer=function(res,req){
       }
    });
 
-   smtpTransport.sendMail({
-      from: "SwarTessera <swartessera@gmail.com>", // sender address
-      to: "Cheryl <cherylcherry95@gmail.com>", // comma separated list of receivers
-      subject: "Mail from Nodemailer", // Subject line
-      text: "Hello world  - this mail is sent from nodemailer library" // plaintext body
-    }, function(error, response){
-      if(error){
-          console.log(error);
-      }
-      else{
-          console.log("Mail sent: " + response.message);
-      }
-   });
+   // res.render('demo', {
+   //   name: 'Satellizer L. Bridget'
+   // }, function(err, html) {
 
+    var mailOptions = {
+      from: "SwarTessera <swartessera@gmail.com>", // sender address
+      to: "Test <test.swartessera@gmail.com>",//, Venz <venzfalcao@gmail.com>, Chi <ajobard96@gmail.com>", // comma separated list of receivers
+      subject: "Test mail with html attached from SwarTessera", // Subject line
+      //text: "Hello world  - this test e-mail is sent from SwarTessera. o.O", // plaintext body
+      //<b>Hello world ✔</b><br><i>This text is actually HTML.</i>
+      //'Embedded image: <img src="http://i.imgur.com/e13TSsJ.png">;'
+      //forceEmbeddedImages: true,
+      html: '<b>Hello world ✔</b>' // You can choose to send an HTML body 
+    };
+
+     smtpTransport.sendMail(mailOptions, function(err){
+          console.log("Mail sent! ");
+     });
+   // });
 }
 

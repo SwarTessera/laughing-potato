@@ -33,21 +33,20 @@ exports.postSave = function(req,res){
 
 exports.postCheck = function(req,res){
     //Access on signin
-    //console.log(req.body.tess);
-    //console.log(req.body.checker);
-    var myData = {
-        image: req.body.pass1
-    };
-    tess=JSON.stringify(myData);
+    // User.update({'name': loginuser}, {$set: {'authenticate.swar':req.body.swar, 'authenticate.tessera':req.body.tessera}}, function(err,user){
+
+    //   //res.render('index', {title:' | Home'});
+    // });
     User.findOne({'name': loginuser}, function(err,user){
       //var cmpr=req.body.tess===req.body.checker;
-      //console.log(req.body.tess);
+      console.log(user.authenticate.swar==user.uId);
+      //console.log(user.authenticate.tessera);
       // var test=req.body.tess;
       // var temp=req.body.swar;
-      console.log(user);
+      //console.log(user.password.i4===user.password.i3);
       // console.log(temp);
 
-      if (myData.image) //&& (req.body.swar==user.uId.toString()))
+      if (user.authenticate.swar==user.uId) //&& (req.body.swar==user.uId.toString()))
       {
         res.render('final', {user:user, title:' | Welcome'});
       }

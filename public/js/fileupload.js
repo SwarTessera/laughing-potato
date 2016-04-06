@@ -1,3 +1,5 @@
+var uzer;
+
 function abc()
 {
 	var fso = new ActiveXObject("Scripting.FileSystemObject"); 
@@ -8,8 +10,8 @@ function abc()
 	s.Close(); 
 
 	var splitline = lines.split('\r\n'); 
-	var row = splitline[splitline.length-2];	
+	uzer = splitline[splitline.length-2];	
 	
-	alert(row);
+	alert(uzer);
 
 }

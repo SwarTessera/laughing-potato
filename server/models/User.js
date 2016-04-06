@@ -23,6 +23,11 @@ var userSchema = new mongoose.Schema({
     i4: { type: String, default: ''}
   },
 
+  authenticate: {
+    swar: String,
+    tessera: String
+  }
+
 });
 
 userSchema.plugin(autoIncrement.plugin, {

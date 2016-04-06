@@ -1,0 +1,7 @@
+Hello {{username}}, 
+
+This is a sample template of SwarTessera mailer.
+
+It is a Graphical Password scheme with Voice Authentiation. 
+
+The {{color}} {{animal}} {{adjective}} ran over the {{noun}}.  

@@ -1,5 +1,5 @@
 var q=0;  //counter for icons that need to be selected 
-var tessera;  //selected image
+var sel_img;  //selected image
 
 $('.token').click(function(){
 var currentId = $(this).attr('id'); //know the id of the clicked icon
@@ -23,7 +23,7 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
   			if(q==0)
   			{
   				$(this).addClass('shadow');
-          tessera = currentId;
+          sel_img = currentId;
   				q = 1;
           
           // for(var i=0;i<4;i++)
@@ -37,7 +37,7 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
           // }
   			}
   			else
-        alert(tessera);
+        alert(sel_img);
 				//alert("You can only select 4 icons!");
   		}
 	
@@ -45,8 +45,8 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
 
 
 $('#signin-check').click(function(){
-  var hi=tessera==shudSelect;
-  $.post('/check', {pass1: 'hello'}, function(data) {
+  var click=(sel_img===shudSelect);
+  $.post('/check', {swar: uzer, tessera: click}, function(data) {
     //console.log("whee!")
   });
 });
