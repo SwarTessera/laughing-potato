@@ -39,22 +39,29 @@ exports.postCheck = function(req,res){
     // });
     User.findOne({'name': loginuser}, function(err,user){
       //var cmpr=req.body.tess===req.body.checker;
-      console.log(user.authenticate.swar==user.uId);
-      //console.log(user.authenticate.tessera);
-      // var test=req.body.tess;
-      // var temp=req.body.swar;
-      //console.log(user.password.i4===user.password.i3);
-      // console.log(temp);
+      //console.log(user.authenticate.swar==user.uId);
+      //var testing=(user.authenticate.swar===user.uId) && (user.authenticate.tessera)
+    //console.log(testing);
+      
 
-      if (user.authenticate.swar==user.uId) //&& (req.body.swar==user.uId.toString()))
+      if(user.authenticate.swar==user.uId)
       {
-        res.render('final', {user:user, title:' | Welcome'});
+        console.log(user.authenticate.swar==user.uId);
+        var testing=(user.authenticate.swar==user.uId) && (user.authenticate.tessera)
+        if (testing === 'true') 
+        {
+          res.render('final', {user:user, title:' | Welcome'});
+        }
+        else if (testing === 'false') 
+        {
+          res.render('signin', {title:' | Redo'});
+        }
       }
       else
       {
         res.render('signin', {title:' | Redo'});
       }
-    });
+  });
 }
 
 //in check!
