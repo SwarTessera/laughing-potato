@@ -31,12 +31,16 @@ exports.postSave = function(req,res){
     });
 }
 
+exports.postUpdate = function(req,res){
+    User.update({'name': loginuser}, {$set: {'authenticate.swar':req.body.swar, 'authenticate.tessera':req.body.tessera}}, function(err,user){
+
+      //res.render('index', {title:' | Home'});
+    });
+
+}
+
 exports.postCheck = function(req,res){
     //Access on signin
-    // User.update({'name': loginuser}, {$set: {'authenticate.swar':req.body.swar, 'authenticate.tessera':req.body.tessera}}, function(err,user){
-
-    //   //res.render('index', {title:' | Home'});
-    // });
     User.findOne({'name': loginuser}, function(err,user){
       //var cmpr=req.body.tess===req.body.checker;
       //console.log(user.authenticate.swar==user.uId);

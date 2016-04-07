@@ -46,7 +46,7 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
 
 $('#signin-check').click(function(){
   var click=(sel_img===shudSelect);
-  $.post('/check', {swar: uzer, tessera: click}, function(data) {
+  $.post('/update', {swar: uzer, tessera: click}, function(data) {
     //console.log("whee!")
   });
 });

@@ -37,6 +37,7 @@ app.get('/upload',iconController.getUpload);
 app.post('/upload',iconController.postUpload);
 app.get('/finalsignup',userController.getFinalSignup);
 app.post('/save', userController.postSave);
+app.post('/update', userController.postUpdate);
 app.post('/check', userController.postCheck);
 
 //app.get('/select-grid',iconController.getIcon);

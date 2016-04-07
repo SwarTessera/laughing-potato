@@ -10,8 +10,9 @@ function abc()
 	s.Close(); 
 
 	var splitline = lines.split('\r\n'); 
-	uzer = splitline[splitline.length-2];	
+	uz = splitline[splitline.length-2];	
 	
-	alert(uzer);
+	alert(uz);
+	uzer=parseInt(uz);
 
 }
