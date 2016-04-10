@@ -1,0 +1,125 @@
+/* 1 */
+{
+    "_id" : ObjectId("56fd609ccf3acea40b3e85fc"),
+    "uId" : 1,
+    "name" : "cher",
+    "question" : "Favourite color?",
+    "answer" : "purple",
+    "password" : {
+        "i4" : "21",
+        "i3" : "27",
+        "i2" : "20",
+        "i1" : "41"
+    },
+    "profile" : {
+        "picture" : "",
+        "gender" : "Female",
+        "email" : "cher@gmail.com"
+    },
+    "__v" : 0
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("56fd69cccf3acea40b3e85fe"),
+    "uId" : 2,
+    "name" : "venz",
+    "question" : "Name of first pet?",
+    "answer" : "vovi",
+    "password" : {
+        "i4" : "0",
+        "i3" : "0",
+        "i2" : "0",
+        "i1" : "0"
+    },
+    "profile" : {
+        "picture" : "",
+        "gender" : "Female",
+        "email" : "ven@v.in"
+    },
+    "__v" : 0
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("56fdc598f35f44d42787763b"),
+    "uId" : 3,
+    "name" : "lisa",
+    "question" : "Native place?",
+    "answer" : "Mangalore",
+    "password" : {
+        "i4" : "54",
+        "i3" : "44",
+        "i2" : "26",
+        "i1" : "11"
+    },
+    "profile" : {
+        "picture" : "",
+        "gender" : "Female",
+        "email" : "lisa@gmail.com"
+    },
+    "__v" : 0
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("56fe0435c25d8a5c2d3a2c8f"),
+    "uId" : 4,
+    "name" : "lisadmello",
+    "question" : "Name of first pet?",
+    "answer" : "none",
+    "password" : {
+        "i4" : "49",
+        "i3" : "26",
+        "i2" : "51",
+        "i1" : "54"
+    },
+    "profile" : {
+        "picture" : "",
+        "gender" : "Female",
+        "email" : "lisa.dmello1994@gmail.com"
+    },
+    "__v" : 0
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("56fe1b63e22d0454274b43a4"),
+    "uId" : 5,
+    "name" : "chi",
+    "question" : "Favourite color?",
+    "answer" : "blue",
+    "password" : {
+        "i4" : "34",
+        "i3" : "36",
+        "i2" : "3",
+        "i1" : "21"
+    },
+    "profile" : {
+        "picture" : "",
+        "gender" : "Male",
+        "email" : "jcscjs@jd.djh"
+    },
+    "__v" : 0
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("56ff65f8f8975404322cdb00"),
+    "uId" : 7,
+    "name" : "rtwe",
+    "question" : "Best chocolate brand?",
+    "answer" : "jhj",
+    "password" : {
+        "i4" : "",
+        "i3" : "",
+        "i2" : "",
+        "i1" : ""
+    },
+    "profile" : {
+        "picture" : "",
+        "gender" : "Female",
+        "email" : "ee@dsgg.dfg"
+    },
+    "__v" : 0
+}

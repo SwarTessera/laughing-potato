@@ -1,6 +1,6 @@
 #welcome{
-  background: white;
-  height: 650px;
+  background: url(/images/pride-rock2.jpg);
+  height: 645px;
   margin-top: 0px;
 
   .content {
@@ -11,7 +11,7 @@
     font-size: 35px;
     line-height: 40px;
     font-family:'Muli';
-    color: #ecf0f1;
+    color: $wah;
     height: 160px;
     overflow:hidden;
   }
@@ -36,7 +36,7 @@
     &:after, &:before {
       position:absolute;
       top:0;
-      color:#16a085;
+      color:$tint;
       font-size:42px;
       animation:2s linear 0s normal none infinite opacity;
     }
