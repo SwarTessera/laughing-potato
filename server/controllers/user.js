@@ -9,22 +9,29 @@ var swar;
 var tess;
 
 exports.getSignUp = function(req,res){
-	res.render('signup', {title:' | Sign up'});
+  res.render('signup', {title:' | Sign up'});
 }
 
 exports.postSignUp = function(req,res){
         //Create a new user
-        //var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
         kickbox.verify(req.body.email , function (err, response) {
           // Let's see some results
+          if (response.body.result == 'deliverable')
+          {
+            var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
+            user.save();
+            currentuser=req.body.name;
+
+            Icon.find(function(err,icons){
+              res.render('select-grid', {icons:icons, title:' | Select Password'});
+            });
+          }
+          else
+          {
+            res.render('signup', {title:' | Sign up'});
+          }
           console.log(response.body);
         });
-        // user.save();
-        // currentuser=req.body.name;
-
-        // Icon.find(function(err,icons){
-        //   res.render('select-grid', {icons:icons, title:' | Select Password'});
-        // });
     }
 
 exports.postSave = function(req,res){
