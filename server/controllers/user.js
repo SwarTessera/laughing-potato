@@ -1,6 +1,7 @@
 var User =require('../models/User');
 var Course =require('../models/Course');
 var Icon =require('../models/Icon');
+var kickbox = require('kickbox').client('625b73eac9705b0151abe7470b1ee784f52a5d8fa25009acc3b790011072f502').kickbox();
 
 var currentuser;
 var loginuser;
@@ -13,13 +14,17 @@ exports.getSignUp = function(req,res){
 
 exports.postSignUp = function(req,res){
         //Create a new user
-        var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
-        user.save();
-        currentuser=req.body.name;
-
-        Icon.find(function(err,icons){
-          res.render('select-grid', {icons:icons, title:' | Select Password'});
+        //var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
+        kickbox.verify(req.body.email , function (err, response) {
+          // Let's see some results
+          console.log(response.body);
         });
+        // user.save();
+        // currentuser=req.body.name;
+
+        // Icon.find(function(err,icons){
+        //   res.render('select-grid', {icons:icons, title:' | Select Password'});
+        // });
     }
 
 exports.postSave = function(req,res){
