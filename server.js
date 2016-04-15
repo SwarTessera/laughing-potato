@@ -56,7 +56,7 @@ app.get('/signin', userController.getSignIn);
 app.post('/signin', userController.postSignIn);
 
 
-app.get("/nodemailer",emailer.getMailer);
+app.post("/nodemailer",emailer.postMailer);
 
 app.listen(3020);
 console.log("Express is listening at port 3020");
