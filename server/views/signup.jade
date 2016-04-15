@@ -10,7 +10,11 @@ block main
           -if (response.body.result != 'deliverable')
             .alert.alert-danger.fade.in 
               a.close(href='#', data-dismiss='alert', aria-label='close') &times;
-              |Please enter a valid e-mail address.
+              |P
+        -if (found)
+          .alert.alert-danger.fade.in 
+            a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+            |e-mail address already exists!
         | 
         label#icon(for='name')
           i.fa.fa-user

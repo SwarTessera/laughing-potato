@@ -18,12 +18,18 @@ exports.postSignUp = function(req,res){
           // Let's see some results
           if (response.body.result == 'deliverable')
           {
-            var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
-            user.save();
-            currentuser=req.body.name;
+            User.findOne({'profile.email': req.body.email}, function(err,found){
+              if(found)
+              {
+                res.render('signup', {found:found, title:' | Sign up'});
+              }
+              var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
+              user.save();
+              currentuser=req.body.name;
 
-            Icon.find(function(err,icons){
-              res.render('select-grid', {icons:icons, title:' | Select Password'});
+              Icon.find(function(err,icons){
+                res.render('select-grid', {icons:icons, title:' | Select Password'});
+              });
             });
           }
           else
