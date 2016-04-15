@@ -11,6 +11,7 @@ exports.postQuestion=function(req,res){
   //kickbox.verify(req.body.email , function (err, response) {
   quickemailverification.verify(req.body.email , function (err, response) {
     // Let's see some results
+    console.log(response);
     //if (response.body.result == 'deliverable')  //for kickbox
     if (response.body.result == 'valid')        //for quickemailverification
     {
@@ -36,10 +37,11 @@ exports.postQuestion=function(req,res){
 
 exports.postMailer=function(req,res){
 
-   //your nodemailer logic here to send mail
-
-  
-          var smtpTransport = nodemailer.createTransport("SMTP",{
+  //your nodemailer logic here to send mail
+  User.findOne({'profile.email': emailto}, function(err,found){
+    if(found.answer == req.body.answer)
+    {
+            var smtpTransport = nodemailer.createTransport("SMTP",{
             service: "Gmail",
             auth: {
                 user: "swartessera@gmail.com",
@@ -62,7 +64,7 @@ exports.postMailer=function(req,res){
 
             var mailOptions = {
               from: "SwarTessera <swartessera@gmail.com>", // sender address
-              to: req.body.email,  // receiver address
+              to: emailto,  // receiver address
               subject: "Code test mail", // Subject line
               //text: "Hello world  - this test e-mail is sent from SwarTessera. o.O"//, // plaintext body
               //forceEmbeddedImages: true,
@@ -80,5 +82,11 @@ exports.postMailer=function(req,res){
                 }
             });
           });
-        
+    }
+    else
+    {
+      res.render('question', {match:'no', found:found, title:' | Question'});
+    }
+
+  });
 }

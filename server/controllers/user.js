@@ -92,17 +92,6 @@ exports.postCheck = function(req,res){
   });
 }
 
-//in check!
-//if (req.body.token==req.body.checker && user.uid==req.body.read)
-// {
-//   res.render('final', {title:' | Welcome'});
-// }
-// else
-// {
-  //send alert also!!!!!!!!
-//   res.render('signin', {title:' | Welcome'});
-// }
-
 exports.getFinalSignup = function(req,res){
     res.render('index', {title:' | Home'});
 }

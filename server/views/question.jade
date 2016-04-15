@@ -6,12 +6,10 @@ block main
       |   
       form(name="form", action='/nodemailer', method="post")
         hr
-        -if (response)
-          //-if (response.body.result != 'deliverable')
-          -if (response.body.result != 'valid')
-            .alert.alert-danger.fade.in 
-              a.close(href='#', data-dismiss='alert', aria-label='close') &times;
-              |Please enter a valid e-mail address.
+        -if (match)
+          .alert.alert-danger.fade.in 
+            a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+            |Incorrect answer!
                 
         label#icon(for='name')
           i.fa.fa-shield
