@@ -36,6 +36,7 @@ app.get('/',courseController.getIndex);
 app.get('/upload',iconController.getUpload);
 app.post('/upload',iconController.postUpload);
 app.get('/finalsignup',userController.getFinalSignup);
+app.get('/forgot',userController.getForgot);
 app.post('/save', userController.postSave);
 app.post('/update', userController.postUpdate);
 app.post('/check', userController.postCheck);

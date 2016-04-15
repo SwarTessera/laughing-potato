@@ -40,6 +40,10 @@ exports.postSignUp = function(req,res){
         });
     }
 
+exports.getForgot = function(req,res){
+  res.render('resend', {title:' | Resend'});
+}
+
 exports.postSave = function(req,res){
     //Update user with password
     console.log(req.body.pass1);
