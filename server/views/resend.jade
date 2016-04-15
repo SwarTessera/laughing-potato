@@ -4,15 +4,21 @@ block main
     .testbox#signup
       h1 Forgot Credentials
       |   
-      form(name="form", action='/nodemailer', method="post")
+      form(name="form", action='/question', method="post")
         hr
         -if (response)
-          -if (response.body.result != 'deliverable')
+          //-if (response.body.result != 'deliverable')
+          -if (response.body.result != 'valid')
             .alert.alert-danger.fade.in 
               a.close(href='#', data-dismiss='alert', aria-label='close') &times;
               |Please enter a valid e-mail address.
+        -if (exist)
+          .alert.alert-danger.fade.in 
+            a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+            |e-mail address doesn't exists!
         label#icon(for='name')
           i.fa.fa-envelope-o
         |   
         input#name(type='text', name='email', placeholder='Email', required='')
-        input(type="submit", value='Send').btn 
+      
+        input(type="submit", value='Next').btn 

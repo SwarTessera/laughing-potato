@@ -1,6 +1,7 @@
 var User =require('../models/User');
 var Icon =require('../models/Icon');
-var kickbox = require('kickbox').client('3138ff17fef3bc1609e1c772495711766a66ba4507c3b516e19bb9fb14120ae4').kickbox();
+var kickbox = require('kickbox').client('309efea2a9c9c6a7b4a0ea41e0a8007bec83784d4f4ea9fbc984a55916d1d6ee').kickbox();
+var quickemailverification = require('quickemailverification').client('0303dc3c45fcfdddb2e9f47a659a41ada608c289c138622764fc588747df').quickemailverification();
 
 var currentuser;
 var loginuser;
@@ -13,9 +14,11 @@ exports.getSignUp = function(req,res){
 
 exports.postSignUp = function(req,res){
         //Create a new user
-        kickbox.verify(req.body.email , function (err, response) {
+        //kickbox.verify(req.body.email , function (err, response) {
+        quickemailverification.verify(req.body.email , function (err, response) {
           // Let's see some results
-          if (response.body.result == 'deliverable')
+          //if (response.body.result == 'deliverable')  //for kickbox
+          if (response.body.result == 'valid')        //for quickemailverification
           {
             User.findOne({'profile.email': req.body.email}, function(err,found){
               if(found)

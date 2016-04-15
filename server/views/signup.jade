@@ -7,7 +7,8 @@ block main
       form(name="form", action='/signup', method="post")
         hr
         -if (response)
-          -if (response.body.result != 'deliverable')
+          //-if (response.body.result != 'deliverable')
+          -if (response.body.result != 'valid')
             .alert.alert-danger.fade.in 
               a.close(href='#', data-dismiss='alert', aria-label='close') &times;
               |Please enter a valid e-mail address.

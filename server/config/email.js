@@ -1,44 +1,30 @@
 var nodemailer = require('nodemailer');
-var kickbox = require('kickbox').client('3138ff17fef3bc1609e1c772495711766a66ba4507c3b516e19bb9fb14120ae4').kickbox();
+var kickbox = require('kickbox').client('309efea2a9c9c6a7b4a0ea41e0a8007bec83784d4f4ea9fbc984a55916d1d6ee').kickbox();
+var quickemailverification = require('quickemailverification').client('0303dc3c45fcfdddb2e9f47a659a41ada608c289c138622764fc588747df').quickemailverification();
 
 var User =require('../models/User');
+var Icon =require('../models/Icon');
 
-exports.postMailer=function(req,res){
+var emailto;
 
-   //your nodemailer logic here to send mail
-
-  kickbox.verify(req.body.email , function (err, response) {
+exports.postQuestion=function(req,res){
+  //kickbox.verify(req.body.email , function (err, response) {
+  quickemailverification.verify(req.body.email , function (err, response) {
     // Let's see some results
-    if (response.body.result == 'deliverable')
+    //if (response.body.result == 'deliverable')  //for kickbox
+    if (response.body.result == 'valid')        //for quickemailverification
     {
-         var smtpTransport = nodemailer.createTransport("SMTP",{
-            service: "Gmail",
-            auth: {
-                user: "swartessera@gmail.com",
-                pass: "beproject"
-            }
-         });
-
-          var mailOptions = {
-            from: "SwarTessera <swartessera@gmail.com>", // sender address
-            to: req.body.email,  // receiver address
-            subject: "Code test mail", // Subject line
-            //text: "Hello world  - this test e-mail is sent from SwarTessera. o.O"//, // plaintext body
-            //forceEmbeddedImages: true,
-            html: '<b>Hello world ✔</b><br><img src="http://i.imgur.com/e13TSsJ.png">' // You can choose to send an HTML body 
-            //'Embedded image: <img src="http://i.imgur.com/e13TSsJ.png">;'
-          };
-
-           smtpTransport.sendMail(mailOptions, function(error, info){
-              if(error){
-                  console.log(error);
-                  res.json({yo: 'error'});
-              }
-              else{
-                  console.log('Message sent: ' + info.response);
-                  res.render('signin', {sent:'yes', title:' | Signin'});
-              };
-          });
+      User.findOne({'profile.email': req.body.email}, function(err,found){
+        if(found)
+        {
+          emailto=req.body.email;
+          res.render('question', {found:found, title:' | Question'});
+        }
+        else
+        {
+          res.render('resend', {exist:'nope', title:' | Resend'});
+        }
+      });
     }
     else
     {
@@ -48,3 +34,51 @@ exports.postMailer=function(req,res){
   });
 }
 
+exports.postMailer=function(req,res){
+
+   //your nodemailer logic here to send mail
+
+  
+          var smtpTransport = nodemailer.createTransport("SMTP",{
+            service: "Gmail",
+            auth: {
+                user: "swartessera@gmail.com",
+                pass: "beproject"
+            }
+          });
+
+          var i = found.password.i1;
+          var ii = found.password.i2;
+          var iii = found.password.i3;
+          var iv = found.password.i4;
+        
+          Icon.find(function(err,icons){
+            //var iconSet = JSON.stringify({data:icons});
+            //console.log(icons);
+            i = icons[i-1].picture;
+            ii = icons[ii-1].picture;
+            iii = icons[iii-1].picture;
+            iv = icons[iv-1].picture;
+
+            var mailOptions = {
+              from: "SwarTessera <swartessera@gmail.com>", // sender address
+              to: req.body.email,  // receiver address
+              subject: "Code test mail", // Subject line
+              //text: "Hello world  - this test e-mail is sent from SwarTessera. o.O"//, // plaintext body
+              //forceEmbeddedImages: true,
+              html: '<h1 style="text-transform:capitalize;">Hello '+found.name+' ✔</h1><br><fieldset><legend>Your login tokens are:</legend><br><br><img src="'+i+'"><img src="'+ii+'"><img src="'+iii+'"><img src="'+iv+'"></fieldset><br><br><br><h2>Love,<br>SwarTessera</h2>' // HTML body 
+            };
+
+            smtpTransport.sendMail(mailOptions, function(error, info){
+                if(error){
+                    console.log(error);
+                    res.json({yo: 'error'});
+                }
+                else{
+                    console.log('Message sent: ' + info.response);
+                    res.render('signin', {sent:'yes', title:' | Signin'});
+                }
+            });
+          });
+        
+}

@@ -56,6 +56,7 @@ app.get('/signin', userController.getSignIn);
 app.post('/signin', userController.postSignIn);
 
 
+app.post("/question",emailer.postQuestion);
 app.post("/nodemailer",emailer.postMailer);
 
 app.listen(3020);
