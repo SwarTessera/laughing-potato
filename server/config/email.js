@@ -36,7 +36,7 @@ exports.postMailer=function(req,res){
               }
               else{
                   console.log('Message sent: ' + info.response);
-                  res.render('signin', {title:' | Signin'});
+                  res.render('signin', {sent:'yes', title:' | Signin'});
               };
           });
     }

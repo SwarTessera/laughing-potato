@@ -6,6 +6,11 @@ block main
       |   
       form(name="form", action='/signin', method="post")
         hr
+        -if (sent)
+          .alert.alert-success.fade.in 
+            a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+            strong Email sent!
+            | Please check your email.
         label#icon(for='name')
           i.fa.fa-user
         |   
