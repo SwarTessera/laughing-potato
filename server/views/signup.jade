@@ -1,12 +1,16 @@
 extends ./includes/layout
 block main
   .container-fluid.register
-    .alert.alert-danger #{reason}
     .testbox#signup
       h1 Registration
       |   
       form(name="form", action='/signup', method="post")
         hr
+        -if (response)
+          -if (response.body.result != 'deliverable')
+            .alert.alert-danger.fade.in 
+              a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+              |Please enter a valid e-mail address.
         | 
         label#icon(for='name')
           i.fa.fa-user

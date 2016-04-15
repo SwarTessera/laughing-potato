@@ -28,7 +28,7 @@ exports.postSignUp = function(req,res){
           }
           else
           {
-            res.render('signup', {reason:response.body.reason, title:' | Sign up'});
+            res.render('signup', {response:response, title:' | Sign up'});
           }
           console.log(response.body);
         });
