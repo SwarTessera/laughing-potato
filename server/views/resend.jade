@@ -6,10 +6,13 @@ block main
       |   
       form(name="form", action='/nodemailer', method="post")
         hr
+        -if (response)
+          -if (response.body.result != 'deliverable')
+            .alert.alert-danger.fade.in 
+              a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+              |Please enter a valid e-mail address.
         label#icon(for='name')
           i.fa.fa-envelope-o
         |   
         input#name(type='text', name='email', placeholder='Email', required='')
-        |     
-        |    
-        input(type="submit", value='Send').button 
+        input(type="submit", value='Send').btn 

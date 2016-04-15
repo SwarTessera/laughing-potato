@@ -1,7 +1,6 @@
 var User =require('../models/User');
-var Course =require('../models/Course');
 var Icon =require('../models/Icon');
-var kickbox = require('kickbox').client('625b73eac9705b0151abe7470b1ee784f52a5d8fa25009acc3b790011072f502').kickbox();
+var kickbox = require('kickbox').client('3138ff17fef3bc1609e1c772495711766a66ba4507c3b516e19bb9fb14120ae4').kickbox();
 
 var currentuser;
 var loginuser;
