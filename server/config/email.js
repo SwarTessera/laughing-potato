@@ -65,7 +65,7 @@ exports.postMailer=function(req,res){
             var mailOptions = {
               from: "SwarTessera <swartessera@gmail.com>", // sender address
               to: emailto,  // receiver address
-              subject: "Code test mail", // Subject line
+              subject: "SwarTessera: login credentials", // Subject line
               //text: "Hello world  - this test e-mail is sent from SwarTessera. o.O"//, // plaintext body
               //forceEmbeddedImages: true,
               html: '<h1 style="text-transform:capitalize;">Hello '+found.name+' ✔</h1><br><fieldset><legend>Your login tokens are:</legend><br><br><img src="'+i+'"><img src="'+ii+'"><img src="'+iii+'"><img src="'+iv+'"></fieldset><br><br><br><h2>Love,<br>SwarTessera</h2>' // HTML body 
