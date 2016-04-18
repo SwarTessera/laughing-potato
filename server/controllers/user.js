@@ -8,6 +8,10 @@ var loginuser;
 var swar;
 var tess;
 
+exports.getIndex = function(req,res){
+  res.render('index', {title:' | Home'});
+}
+
 exports.getSignUp = function(req,res){
   res.render('signup', {title:' | Sign up'});
 }
@@ -30,7 +34,7 @@ exports.postSignUp = function(req,res){
               currentuser=req.body.name;
 
               Icon.find(function(err,icons){
-                res.render('select-grid', {icons:icons, title:' | Select Password'});
+                  res.render('select-grid', {icons:icons, uId:saved.uId, title:' | Select Password'});
               });
             });
           }

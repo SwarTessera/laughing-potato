@@ -48,8 +48,7 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
           }
   			}
   			else
-        alert(password[0]+','+password[1]+','+password[2]+','+password[3]);
-				//alert("You can only select 4 icons!");
+				alert("You can only select 4 icons!");
   		}
 	
 });

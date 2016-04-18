@@ -40,11 +40,36 @@ function session(a, b, c, d, ico)
 			i--;
 	}
 
-	//select seed cell
-	//3 & 10 instead of 5 and 12 so that the grid doesn't exceed the boundary
-	///Math.floor((Math.random() * max) + min);
-	var x1=Math.floor((Math.random() * 3) + 1)
-	var y1=Math.floor((Math.random() * 10) + 1)
+	//square type
+	var type=Math.floor((Math.random() * 2) + 1);
+	switch(type){
+		case 1://square
+			//select seed cell
+			//3 & 10 instead of 5 and 12 so that the grid doesn't exceed the boundary
+			///Math.floor((Math.random() * max) + min);
+			var x1=Math.floor((Math.random() * 3) + 1);
+			var
+			break;
+			
+		case 2://diamond
+			//select seed cell
+			//3 & 2-11 instead of 5 and 1-12 so that the grid doesn't exceed the boundary
+			///Math.floor((Math.random() * max) + min);
+			var x1=Math.floor((Math.random() * 3) + 1);
+			var y1=Math.floor((Math.random() * 11) + 2);
+			break;
+	}
+
+
+
+
+
+
+
+
+
+
+
 	
 	//plot the vertices
 	var x2=x1+2;		var y2=y1+2;

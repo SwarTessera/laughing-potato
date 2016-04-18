@@ -37,8 +37,7 @@ var currentId = $(this).attr('id'); //know the id of the clicked icon
           // }
   			}
   			else
-        alert(sel_img);
-				//alert("You can only select 4 icons!");
+				alert("You have alredy selected 1 icon!");
   		}
 	
 });
