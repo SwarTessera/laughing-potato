@@ -48,7 +48,15 @@ function session(a, b, c, d, ico)
 			//3 & 10 instead of 5 and 12 so that the grid doesn't exceed the boundary
 			///Math.floor((Math.random() * max) + min);
 			var x1=Math.floor((Math.random() * 3) + 1);
-			var
+			var y1=Math.floor((Math.random() * 10) + 1);
+			
+			//plot the vertices
+			var x2=x1;			var y2=y1+2;
+			var x3=x1+2;		var y3=y1+2;
+			var x4=x1+2;		var y4=y1;
+			
+			//calculate icon position to be clicked
+			var m=(x1+x3)/2;	var n=(y1+y3)/2;
 			break;
 			
 		case 2://diamond
@@ -57,31 +65,23 @@ function session(a, b, c, d, ico)
 			///Math.floor((Math.random() * max) + min);
 			var x1=Math.floor((Math.random() * 3) + 1);
 			var y1=Math.floor((Math.random() * 11) + 2);
+
+			//plot the vertices
+			var x2=x1+1;		var y2=y1+1;
+			var x3=x1+2;		var y3=y1;
+			var x4=x1+1;		var y4=y1-1;
+
+			//calculate icon position to be clicked
+			var m=(x1+x3)/2;	var n=y1;
 			break;
-	}
-
-
-
-
-
-
-
-
-
-
-
-	
-	//plot the vertices
-	var x2=x1+2;		var y2=y1+2;
+	}	
 
 	//set taken position
 	usedPosition[x1][y1]=true;
-	usedPosition[x1][y2]=true;
-	usedPosition[x2][y1]=true;
 	usedPosition[x2][y2]=true;
+	usedPosition[x3][y3]=true;
+	usedPosition[x4][y4]=true;
 
-	//calculate icon position to be clicked
-	var m=(x1+x2)/2;	var n=(y1+y2)/2;
 
 	//alert(x1+'  '+y1+'|'+x1+'  '+y2+'|'+x2+'  '+y1+'|'+x2+'  '+y2);
 
@@ -128,7 +128,7 @@ function session(a, b, c, d, ico)
 	
 	//since a lag reveals the 4 icons
 	document.getElementById(x1+'|'+y1).src=iconz.data[p[0]-1].picture;
-	document.getElementById(x1+'|'+y2).src=iconz.data[p[1]-1].picture;
-	document.getElementById(x2+'|'+y1).src=iconz.data[p[2]-1].picture;
-	document.getElementById(x2+'|'+y2).src=iconz.data[p[3]-1].picture;
+	document.getElementById(x2+'|'+y2).src=iconz.data[p[1]-1].picture;
+	document.getElementById(x3+'|'+y3).src=iconz.data[p[2]-1].picture;
+	document.getElementById(x4+'|'+y4).src=iconz.data[p[3]-1].picture;
 }
