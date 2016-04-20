@@ -17,82 +17,74 @@ exports.getSignUp = function(req,res){
 }
 
 exports.postSignUp = function(req,res){
-        //Create a new user
-        //kickbox.verify(req.body.email , function (err, response) {
-        quickemailverification.verify(req.body.email , function (err, response) {
-          // Let's see some results
-          //if (response.body.result == 'deliverable')  //for kickbox
-          if (response.body.result == 'valid')        //for quickemailverification
-          {
-            User.findOne({'profile.email': req.body.email}, function(err,found){
-              if(found)
-              {
-                res.render('signup', {found:found, title:' | Sign up'});
-              }
-              var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
-              user.save();
-              currentuser=req.body.name;
+  //Create a new user
+  //kickbox.verify(req.body.email , function (err, response) {
+  quickemailverification.verify(req.body.email , function (err, response) {
+    // Let's see some results
+    //if (response.body.result == 'deliverable')  //for kickbox
+    if (response.body.result == 'valid')        //for quickemailverification
+    {
+      User.findOne({'profile.email': req.body.email}, function(err,found){
+        if(found)
+        {
+          res.render('signup', {found:found, title:' | Sign up'});
+        }
+        var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
+        user.save();
+        currentuser=req.body.name;
 
-              Icon.find(function(err,icons){
-                  res.render('select-grid', {icons:icons, uId:saved.uId, title:' | Select Password'});
-              });
-            });
-          }
-          else
-          {
-            res.render('signup', {response:response, title:' | Sign up'});
-          }
-          console.log(response.body);
+        Icon.find(function(err,icons){
+            res.render('select-grid', {icons:icons, uId:saved.uId, title:' | Select Password'});
         });
+      });
     }
+    else
+    {
+      res.render('signup', {response:response, title:' | Sign up'});
+    }
+    console.log(response.body);
+  });
+}
 
 exports.getForgot = function(req,res){
   res.render('resend', {title:' | Resend'});
 }
 
 exports.postSave = function(req,res){
-    //Update user with password
-    console.log(req.body.pass1);
-    User.update({'name': currentuser}, {$set: {'password.i1':req.body.pass1, 'password.i2':req.body.pass2, 'password.i3':req.body.pass3, 'password.i4':req.body.pass4}}, function(err,user){
-
-      res.render('index', {title:' | Home'});
-    });
+  //Update user with password
+  console.log(req.body.pass1);
+  User.update({'name': currentuser}, {$set: {'password.i1':req.body.pass1, 'password.i2':req.body.pass2, 'password.i3':req.body.pass3, 'password.i4':req.body.pass4}}, function(err,user){
+    res.render('index', {title:' | Home'});
+  });
 }
 
 exports.postUpdate = function(req,res){
-    User.update({'name': loginuser}, {$set: {'authenticate.swar':req.body.swar, 'authenticate.tessera':req.body.tessera}}, function(err,user){
-
-      //res.render('index', {title:' | Home'});
-    });
-
+  User.update({'name': loginuser}, {$set: {'authenticate.swar':req.body.swar, 'authenticate.tessera':req.body.tessera}}, function(err,user){
+    //res.render('index', {title:' | Home'});
+  });
 }
 
 exports.postCheck = function(req,res){
-    //Access on signin
-    User.findOne({'name': loginuser}, function(err,user){
-      //var cmpr=req.body.tess===req.body.checker;
-      //console.log(user.authenticate.swar==user.uId);
-      //var testing=(user.authenticate.swar===user.uId) && (user.authenticate.tessera)
-    //console.log(testing);
-      
+  //Access on signin
+  User.findOne({'name': loginuser}, function(err,user){
 
-      if(user.authenticate.swar==user.uId)
+    if(user.authenticate.swar==user.uId)
+    {
+      console.log(user.authenticate.swar==user.uId);
+      var testing=(user.authenticate.swar==user.uId) && (user.authenticate.tessera)
+      if (testing === 'true') 
       {
-        console.log(user.authenticate.swar==user.uId);
-        var testing=(user.authenticate.swar==user.uId) && (user.authenticate.tessera)
-        if (testing === 'true') 
-        {
-          res.render('final', {user:user, title:' | Welcome'});
-        }
-        else if (testing === 'false') 
-        {
-          res.render('signin', {title:' | Redo'});
-        }
+        res.render('final', {user:user, title:' | Welcome'});
       }
-      else
+      else if (testing === 'false') 
       {
         res.render('signin', {title:' | Redo'});
       }
+    }
+    else
+    {
+      res.render('signin', {title:' | Redo'});
+    }
   });
 }
 
@@ -100,27 +92,20 @@ exports.getFinalSignup = function(req,res){
     res.render('index', {title:' | Home'});
 }
 
-
 exports.getImgGrid = function(req,res){
   User.findOne({name:currentuser}, function(err, users){
     if (err) throw err;
     user.password.i1='1';
     user.save();
-    //console.log('User successfully updated!');
   });
-  //   User.update({name : {$eq: user.name}}, {$set: {password:{i1: req.params.id}}}, function(err, result){
-  //   console.log("Updated successfully");
-  //   console.log(result);
-  // });
 }
 
 exports.postSelectIcon = function(req,res){
-        //Save selected img
-
-        var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
-        user.save();
-        res.render('select-grid', {title:' | Select Password'});
-    }
+  //Save selected img
+  var user = new User ({profile:{email:req.body.email, gender:req.body.gender}, name: req.body.name, question: req.body.question, answer: req.body.answer});
+  user.save();
+  res.render('select-grid', {title:' | Select Password'});
+}
 
 exports.getSignIn = function(req,res){
   res.render('signin', {title:' | Sign in'});

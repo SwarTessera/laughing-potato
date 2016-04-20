@@ -41,52 +41,50 @@ exports.postMailer=function(req,res){
   User.findOne({'profile.email': emailto}, function(err,found){
     if(found.answer == req.body.answer)
     {
-            var smtpTransport = nodemailer.createTransport("SMTP",{
-            service: "Gmail",
-            auth: {
-                user: "swartessera@gmail.com",
-                pass: "beproject"
-            }
-          });
+      var smtpTransport = nodemailer.createTransport("SMTP",{
+      service: "Gmail",
+      auth: {
+          user: "swartessera@gmail.com",
+          pass: "beproject"
+        }
+      });
 
-          var i = found.password.i1;
-          var ii = found.password.i2;
-          var iii = found.password.i3;
-          var iv = found.password.i4;
-        
-          Icon.find(function(err,icons){
-            //var iconSet = JSON.stringify({data:icons});
-            //console.log(icons);
-            i = icons[i-1].picture;
-            ii = icons[ii-1].picture;
-            iii = icons[iii-1].picture;
-            iv = icons[iv-1].picture;
+      var i = found.password.i1;
+      var ii = found.password.i2;
+      var iii = found.password.i3;
+      var iv = found.password.i4;
+    
+      Icon.find(function(err,icons){
+        //var iconSet = JSON.stringify({data:icons});
+        //console.log(icons);
+        i = icons[i-1].picture;
+        ii = icons[ii-1].picture;
+        iii = icons[iii-1].picture;
+        iv = icons[iv-1].picture;
 
-            var mailOptions = {
-              from: "SwarTessera <swartessera@gmail.com>", // sender address
-              to: emailto,  // receiver address
-              subject: "SwarTessera: login credentials", // Subject line
-              //text: "Hello world  - this test e-mail is sent from SwarTessera. o.O"//, // plaintext body
-              //forceEmbeddedImages: true,
-              html: '<h1 style="text-transform:capitalize;">Hello '+found.name+' ✔</h1><br><fieldset><legend>Your login tokens are:</legend><br><br><img src="'+i+'"><img src="'+ii+'"><img src="'+iii+'"><img src="'+iv+'"></fieldset><br><br><br><h2>Love,<br>SwarTessera</h2>' // HTML body 
-            };
+        var mailOptions = {
+          from: "SwarTessera <swartessera@gmail.com>", // sender address
+          to: emailto,  // receiver address
+          subject: "SwarTessera: login credentials", // Subject line
+          //text: "Hello world  - this test e-mail is sent from SwarTessera. o.O"//, // plaintext body
+          //forceEmbeddedImages: true,
+          html: '<h1 style="text-transform:capitalize;">Hello '+found.name+' ✔</h1><br><fieldset><legend>Your login tokens are:</legend><br><br><img src="'+i+'"><img src="'+ii+'"><img src="'+iii+'"><img src="'+iv+'"></fieldset><br><br><br><h2>Love,<br>SwarTessera</h2>' // HTML body 
+        };
 
-            smtpTransport.sendMail(mailOptions, function(error, info){
-                if(error){
-                    console.log(error);
-                    res.json({yo: 'error'});
-                }
-                else{
-                    console.log('Message sent: ' + info.response);
-                    res.render('signin', {sent:'yes', title:' | Signin'});
-                }
-            });
-          });
+        smtpTransport.sendMail(mailOptions, function(error, info){
+          if(error){
+            console.log(error);
+          }
+          else{
+            console.log('Message sent: ' + info.response);
+            res.render('signin', {sent:'yes', title:' | Signin'});
+          }
+        });
+      });
     }
     else
     {
       res.render('question', {match:'no', found:found, title:' | Question'});
     }
-
   });
 }

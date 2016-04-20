@@ -4,48 +4,28 @@ var sel_img;  //selected image
 $('.token').click(function(){
 var currentId = $(this).attr('id'); //know the id of the clicked icon
 
-		if($(this).hasClass('shadow'))
+	if($(this).hasClass('shadow'))
+	{
+		$(this).removeClass('shadow');
+		q = 0;
+	}
+	else
+	{
+		if(q==0)
 		{
-  			$(this).removeClass('shadow');
-        //tessera = 0;
-  			q = 0;
-     //    for(var i=0;i<4;i++)
-     //    {
-     //      if(password[i]==currentId)
-     //      {
-     //          password[i]=0;
-     //          // point=i;
-     //      }
-     //    }
+			$(this).addClass('shadow');
+      sel_img = currentId;
+			q = 1;
 		}
 		else
-  		{
-  			if(q==0)
-  			{
-  				$(this).addClass('shadow');
-          sel_img = currentId;
-  				q = 1;
-          
-          // for(var i=0;i<4;i++)
-          // {
-          //   if(password[i]==0)
-          //   {
-          //       password[i]=currentId;
-          //       i=5;
-          //       // point=i;
-          //   }
-          // }
-  			}
-  			else
-				alert("You have alredy selected 1 icon!");
-  		}
-	
+		alert("You have alredy selected 1 icon!");
+	}
 });
 
 
 $('#signin-check').click(function(){
   var click=(sel_img===shudSelect);
   $.post('/update', {swar: uzer, tessera: click}, function(data) {
-    //console.log("whee!")
+    //pass tokens to be saved.
   });
 });

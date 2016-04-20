@@ -7,6 +7,5 @@ var iconSchema = new mongoose.Schema({
   iconId: Number
 });
 
-
 // Compile Schema into a mongoose Model
 module.exports = mongoose.model('Icon', iconSchema);

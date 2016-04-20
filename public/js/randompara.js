@@ -12,7 +12,7 @@ function generate()
 		"The sky is clear and the stars are twinkling.",
 		"Rock music approaches at high velocity.",
 		"I currently have 4 windows open up and I don’t know why.",
-		"Mary plays the piano.",
+		"Eyes are the windowson your soul.",
 		"A glittering gem is not enough.",
 		"The mysterious diary records the voice.",
 		"The purple ninjas are fighting marshmellows .",
@@ -30,15 +30,15 @@ function generate()
 	];  
 
 	var usedLines = new Array(25);
-		for (var i = 1; i <= 5; i++) 
+	for (var i = 1; i <= 5; i++) 
+	{
+		//low (inclusive) and high (inclusive) 
+		//Math.floor(Math.random() * (high - low+1) + low);
+		var decision=Math.floor(Math.random()*25);
+		if (!usedLines[decision])
 		{
-				//low (inclusive) and high (inclusive) 
-				//Math.floor(Math.random() * (high - low+1) + low);
-				var decision=Math.floor(Math.random()*25);
-				if (!usedLines[decision])
-				{
-						usedLines[decision]=true;
-						document.getElementById('line'+i).innerHTML=paragraphArray[decision];
-				}	
-		};
+			usedLines[decision]=true;
+			document.getElementById('line'+i).innerHTML=paragraphArray[decision];
+		}	
+	};
 }

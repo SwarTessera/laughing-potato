@@ -1,6 +1,5 @@
 var express = require('express'); //node_module for express server
-//MongoDb Driver or Middleware
-var mongoose = require('mongoose'); 
+var mongoose = require('mongoose'); //MongoDb Driver or Middleware
 var bodyParser = require('body-parser');
 var autoIncrement = require('mongoose-auto-increment');
 
@@ -27,7 +26,6 @@ mongoose.connection.on('error',function(){
 	console.error('MongoDb connection error. Please make sure that Mongodb is running');
 });
 
-
 //Routes
 app.get('/',userController.getIndex);
 app.get('/upload',iconController.getUpload);
@@ -38,20 +36,11 @@ app.post('/save', userController.postSave);
 app.post('/update', userController.postUpdate);
 app.post('/check', userController.postCheck);
 
-//app.get('/select-grid',iconController.getIcon);
-// app.post('/selecticon/:id',userController.postSelectIcon);
-// app.get('/addcourse',courseController.getAddCourse);
-// app.post('/addcourse',courseController.postAddCourse);
-// app.get('/viewcourses',courseController.getViewCourses);
-// app.post('/deletecourse/:id',courseController.postDeleteCourse);
-
-
 //login
 app.get('/signup', userController.getSignUp);
 app.post('/signup',userController.postSignUp);
 app.get('/signin', userController.getSignIn);
 app.post('/signin', userController.postSignIn);
-
 
 app.post("/question",emailer.postQuestion);
 app.post("/nodemailer",emailer.postMailer);

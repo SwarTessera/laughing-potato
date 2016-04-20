@@ -7,16 +7,11 @@ var iconSet = new Array(6);	//the randomized icons to be displayed
 
 function session(a, b, c, d, ico)
 {
-	//alert('hi');
-	//document.getElementById('2|2').innerHTML='hello';
 	pwd_set[0]=a;
 	pwd_set[1]=b;
 	pwd_set[2]=c;
 	pwd_set[3]=d;
 
-	//var xyz = JSON.parse(iconz);
-	//icon = icon;
-	//alert(xyz);
 	var iconz = ico;
 	var usedIcons = new Array(61);
 	var usedPwrd = new Array(4);
@@ -24,7 +19,6 @@ function session(a, b, c, d, ico)
 	var usedPosition = new Array(6);
 	for (var i=0; i<6; i++)
 		usedPosition[i]=new Array(13);
-
 
 	//select random password component
 	for (var i=0; i<4; i++)
@@ -82,23 +76,13 @@ function session(a, b, c, d, ico)
 	usedPosition[x3][y3]=true;
 	usedPosition[x4][y4]=true;
 
-
-	//alert(x1+'  '+y1+'|'+x1+'  '+y2+'|'+x2+'  '+y1+'|'+x2+'  '+y2);
-
 	//display remaining images randomly
 	for (var i = 1; i <= 5; i++)
-	//var i = 1;
-	//while(i <= 5)
 	{ 
-		//alert(i);
 		for (var j = 1; j <= 12; j++) 
-		//var j = 1;
-		//while(j <= 12)
 		{
-			//alert(i+'  '+j);
 			if (!usedPosition[i][j])
 			{
-				//alert('position');
 				var x=Math.floor((Math.random() * 60) + 1)
 				if (!usedIcons[x])
 				{
@@ -109,21 +93,14 @@ function session(a, b, c, d, ico)
 					if(i==m && j==n)
 					{
 						shudSelect=i+'|'+j;
-						alert(shudSelect);
 					}
-					//alert('set '+i+','+j);
-					//flag=0;
-					//j++;
 				}
-				else //if (flag == 0)
+				else 
 				{
-					//alert(x+' is used');
 					j--;
-					//flag=1;
 				}
 			}
 		}
-		//i++;
 	}
 	
 	//since a lag reveals the 4 icons
