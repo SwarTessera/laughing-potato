@@ -6,6 +6,10 @@
 	background: url(/images/lion-bg.jpg);
     height: 650px;
     margin-top: 0px;
+
+    a{
+    	color: $tint;
+    }
 }
 
 .welcome-text{
@@ -27,5 +31,19 @@
 		color: $tint;
 	    font-size: 50px;
 	    margin-top: 30%;
+	}
+}
+
+#tech{
+	h1{
+		color: $tint;
+	    margin: 45px 0px 40px 0px;
+	    font-family: monospace;
+    	font-size: 45px;
+	}
+	
+	.techcon{
+		font-size: 120px;
+		margin: 10px 0px 10px 0px;
 	}
 }
