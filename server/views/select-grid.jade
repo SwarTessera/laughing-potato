@@ -1,6 +1,10 @@
 extends ./includes/layout
 block main
   .container-fluid.grid
+    .row.info-panel
+      .alert.alert-info.fade.in 
+          a.close(href='#', data-dismiss='alert', aria-label='close') &times;
+          |Select any 4 icons.
     .row
       h2 Select 4 images
     .row

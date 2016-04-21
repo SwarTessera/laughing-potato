@@ -30,18 +30,15 @@ mongoose.connection.on('error',function(){
 app.get('/',userController.getIndex);
 app.get('/upload',iconController.getUpload);
 app.post('/upload',iconController.postUpload);
-app.get('/finalsignup',userController.getFinalSignup);
-app.get('/forgot',userController.getForgot);
-app.post('/save', userController.postSave);
-app.post('/update', userController.postUpdate);
-app.post('/check', userController.postCheck);
-
-//login
 app.get('/signup', userController.getSignUp);
 app.post('/signup',userController.postSignUp);
+app.post('/save', userController.postSave);
 app.get('/signin', userController.getSignIn);
 app.post('/signin', userController.postSignIn);
-
+app.post('/update', userController.postUpdate);
+app.post('/check', userController.postCheck);
+app.get('/finalsignup',userController.getFinalSignup);
+app.get('/forgot',userController.getForgot);
 app.post("/question",emailer.postQuestion);
 app.post("/nodemailer",emailer.postMailer);
 

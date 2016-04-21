@@ -19,17 +19,17 @@ exports.postQuestion=function(req,res){
         if(found)
         {
           emailto=req.body.email;
-          res.render('question', {found:found, title:' | Question'});
+          res.render('question', {found:found, title:'Secret Question | '});
         }
         else
         {
-          res.render('resend', {exist:'nope', title:' | Resend'});
+          res.render('resend', {exist:'nope', title:'Forgot | '});
         }
       });
     }
     else
     {
-      res.render('resend', {response:response, title:' | Resend'});
+      res.render('resend', {response:response, title:'Forgot | '});
     }
     console.log(response.body);
   });
@@ -55,8 +55,6 @@ exports.postMailer=function(req,res){
       var iv = found.password.i4;
     
       Icon.find(function(err,icons){
-        //var iconSet = JSON.stringify({data:icons});
-        //console.log(icons);
         i = icons[i-1].picture;
         ii = icons[ii-1].picture;
         iii = icons[iii-1].picture;
@@ -77,14 +75,14 @@ exports.postMailer=function(req,res){
           }
           else{
             console.log('Message sent: ' + info.response);
-            res.render('signin', {sent:'yes', title:' | Signin'});
+            res.render('signin', {sent:'yes', title:'Login | '});
           }
         });
       });
     }
     else
     {
-      res.render('question', {match:'no', found:found, title:' | Question'});
+      res.render('question', {match:'no', found:found, title:'Secret Question | '});
     }
   });
 }
