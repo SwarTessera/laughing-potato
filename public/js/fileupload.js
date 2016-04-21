@@ -12,7 +12,5 @@ function abc()
 	var splitline = lines.split('\r\n'); 
 	uz = splitline[splitline.length-2];	
 	
-	alert(uz);
 	uzer=parseInt(uz);
-
 }

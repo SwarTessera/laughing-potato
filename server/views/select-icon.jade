@@ -24,9 +24,10 @@ block main
       // Button trigger modal
       button.btn.btn-primary.btn-lg.voice-modal(type='button', data-toggle='modal', data-target='#myModal', onclick="generate()")
         | Record your voice!
+      br
+      br
       form(name="form", method="post", action="/update")
         input.btn.btn-primary.btn-lg#signin-check(type='submit', value='Save')
-      br
       br
       form(name="form", method="post", action="/check")
               input.btn.btn-primary.btn-lg(type='submit', value='Submit')
@@ -39,7 +40,6 @@ block main
       .modal-dialog(role='document')
         .modal-content
           .modal-header
-            p #{doc.uId}
             button.close(type='button', data-dismiss='modal', aria-label='Close')
               span(aria-hidden='true') &times;
             |         

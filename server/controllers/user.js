@@ -34,7 +34,7 @@ exports.postSignUp = function(req,res){
         currentuser=req.body.name;
 
         Icon.find(function(err,icons){
-            res.render('select-grid', {icons:icons, uId:saved.uId, title:'Grid View | '});
+            res.render('select-grid', {icons:icons, title:'Grid View | '});
         });
       });
     }
