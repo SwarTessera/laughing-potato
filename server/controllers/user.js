@@ -83,7 +83,7 @@ exports.postSignIn = function(req,res){
 
 exports.postUpdate = function(req,res){
   User.update({'name': loginuser}, {$set: {'authenticate.swar':req.body.swar, 'authenticate.tessera':req.body.tessera}}, function(err,user){
-    res.render('select-icon', {save: 'yes', title:'Select Password | '});
+    //Saving!
   });
 }
 
