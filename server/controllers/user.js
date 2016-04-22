@@ -12,6 +12,10 @@ exports.getIndex = function(req,res){
   res.render('index', {title:'Home | '});
 }
 
+exports.getContact = function(req,res){
+  res.render('contact', {title:'Contact | '});
+}
+
 exports.getSignUp = function(req,res){
   res.render('signup', {title:'Sign up | '});
 }

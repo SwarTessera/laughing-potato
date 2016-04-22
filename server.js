@@ -28,6 +28,7 @@ mongoose.connection.on('error',function(){
 
 //Routes
 app.get('/',userController.getIndex);
+app.get('/contactus',userController.getContact);
 app.get('/upload',iconController.getUpload);
 app.post('/upload',iconController.postUpload);
 app.get('/signup', userController.getSignUp);

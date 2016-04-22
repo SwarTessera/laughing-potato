@@ -35,6 +35,12 @@
 }
 
 #tech{
+    background: url('http://i.imgur.com/GNGbTyr.jpg');
+    
+    .bg {
+	    background-color: rgba(0, 0, 0, 0.75);
+	}
+
 	h1{
 		color: $tint;
 	    margin: 45px 0px 40px 0px;
