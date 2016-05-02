@@ -12,7 +12,7 @@ function generate()
 		"The sky is clear and the stars are twinkling.",
 		"Rock music approaches at high velocity.",
 		"I currently have 4 windows open up and I don’t know why.",
-		"Eyes are the windowson your soul.",
+		"Eyes are the windows of your soul.",
 		"A glittering gem is not enough.",
 		"The mysterious diary records the voice.",
 		"The purple ninjas are fighting marshmellows .",
